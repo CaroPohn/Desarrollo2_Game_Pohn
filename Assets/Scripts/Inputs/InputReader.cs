@@ -1,11 +1,14 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour
 {
     public Running running;
+    public CameraLook cameraLook;
 
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
@@ -14,5 +17,10 @@ public class InputReader : MonoBehaviour
 
         if (running != null)
             running.SetDir(moveDirection);
+    }
+
+    public void HandleCameraLook(InputAction.CallbackContext context)
+    {
+        cameraLook.SetRotationAngle(context.ReadValue<Vector2>());
     }
 }

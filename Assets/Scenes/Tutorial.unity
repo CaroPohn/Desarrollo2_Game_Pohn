@@ -247,6 +247,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1642341677}
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+--- !u!4 &800142626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+  m_PrefabInstance: {fileID: 2051875459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1088181159
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +333,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1778194174}
+  - {fileID: 800142626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1088181163
@@ -553,6 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1642341677}
+  - component: {fileID: 1642341678}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -576,6 +583,21 @@ Transform:
   - {fileID: 696274964}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642341678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642341676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ed5d3ff156a9a4298bce43af2364d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1088181162}
+  offset: {x: 0, y: 4.37, z: -10}
+  sensitivity: 200
 --- !u!1001 &1778194173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +774,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e83e0720-e107-4900-9d42-ac463a6ce2f5
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 764e75d6-8bd2-46b7-a692-1bc1047d31d4
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2029202826}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: HandleCameraLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 70f84aa3-a948-4a38-8c62-a9fb5d556214
+    m_ActionName: Player/CameraLook[/Mouse/delta/up,/Mouse/delta/down,/Mouse/delta/left,/Mouse/delta/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -770,6 +812,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   running: {fileID: 1088181163}
+  cameraLook: {fileID: 1642341678}
+--- !u!1001 &2051875459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1088181162}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4029104
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.33931404
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.44476402
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000028471
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.823
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
+      propertyPath: m_Name
+      value: chef_hat
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18dcf8af7ab9e6a4c865dba2932522cb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
