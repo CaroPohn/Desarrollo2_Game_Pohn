@@ -21,6 +21,7 @@ public class Jumping : MonoBehaviour
         if (!CanJump())
             yield break;
         yield return new WaitForFixedUpdate();
+
         rb.AddForce(Vector3.up * force, ForceMode.Impulse);
     }
 
