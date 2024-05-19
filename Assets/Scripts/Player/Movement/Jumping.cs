@@ -5,10 +5,14 @@ using UnityEngine;
 public class Jumping : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] private float force = 0f;
-    [SerializeField] private float groundedDistance = .001f;
-    [SerializeField] private LayerMask floor;
+
+    private bool onGround;
     [SerializeField] private Transform feetPivot;
+    [SerializeField] private float groundedDistance = .3f;
+
+    [SerializeField] private LayerMask floor;
+
+    [SerializeField] private float jumpForce = 0f;
     [SerializeField] private float maxFloorAngle = 60f;
 
     private void Awake()
@@ -22,7 +26,7 @@ public class Jumping : MonoBehaviour
             yield break;
         yield return new WaitForFixedUpdate();
 
-        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        rb.AddForce(transform.up * jumpForce);
     }
 
     private bool CanJump()

@@ -359,14 +359,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6311eefe5dc2aea40b5fe400c486a912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 5
-  groundedDistance: 0.01
+  feetPivot: {fileID: 1476069908}
+  groundedDistance: 0.2
   floor:
     serializedVersion: 2
-    m_Bits: 1
-  feetPivot: {fileID: 1476069908}
+    m_Bits: 64
+  jumpForce: 300
   maxFloorAngle: 60
-  isJumping: 0
 --- !u!1 &1399391201
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +503,7 @@ GameObject:
   - component: {fileID: 1523275002}
   - component: {fileID: 1523275001}
   - component: {fileID: 1523275000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
