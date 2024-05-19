@@ -344,8 +344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7f1ead9ce4ec5449fd46ed241bdad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
   mainCameraPivot: {fileID: 1642341677}
+  movementForce: 50
+  counterMovementForce: 5
 --- !u!114 &1088181164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +366,7 @@ MonoBehaviour:
     m_Bits: 1
   feetPivot: {fileID: 1476069908}
   maxFloorAngle: 60
+  isJumping: 0
 --- !u!1 &1399391201
 GameObject:
   m_ObjectHideFlags: 0

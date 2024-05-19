@@ -7,13 +7,13 @@ public class Running : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [SerializeField] private float speed = 0;
     private Vector3 dir = Vector3.zero;
 
     [SerializeField] private Transform mainCameraPivot;
 
-    private float brakeMultiplier = .15f;
-    private bool shouldBrake;
+    [SerializeField] private float movementForce;
+    [SerializeField] private float counterMovementForce;
+    private Vector3 counterMovement;
 
     private void Awake()
     {
@@ -23,29 +23,16 @@ public class Running : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-
-        var currentVelocity = rb.velocity;
-        currentVelocity.y = 0;
-
-        if (shouldBrake)
-        {
-            rb.AddForce(-currentVelocity * brakeMultiplier, ForceMode.Impulse);
-            shouldBrake = false;
-        }
     }
 
     public void Move()
     {
-        if (dir.magnitude < 0.0001f)
-        {
-            shouldBrake = true;
-        }
-
         Vector3 movementDir = mainCameraPivot.right * dir.x + mainCameraPivot.forward * dir.z;
+        counterMovement = new Vector3(-rb.velocity.x * counterMovementForce, 0, -rb.velocity.z * counterMovementForce);
 
         transform.forward = Vector3.Lerp(transform.forward, movementDir, 0.4f);
 
-        rb.AddForce(movementDir * speed, ForceMode.Force);
+        rb.AddForce(movementDir.normalized * movementForce + counterMovement);
     }
 
     public void SetDir(Vector3 newDir)
