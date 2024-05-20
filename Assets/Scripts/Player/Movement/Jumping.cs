@@ -7,6 +7,7 @@ public class Jumping : MonoBehaviour
     private Rigidbody rb;
 
     private bool jumping;
+    private bool doubleJump;
 
     [SerializeField] private Transform feetPivot;
     [SerializeField] private float floorDistance = 0.3f;
@@ -14,7 +15,7 @@ public class Jumping : MonoBehaviour
     [SerializeField] private LayerMask floorLayer;
 
     [SerializeField] private float jumpForce = 0f;
-    [SerializeField] private float maxFloorAngle = 60f;
+    //[SerializeField] private float maxFloorAngle = 60f;
 
     [SerializeField] private float timeBetweenJump = 0.2f;
 
@@ -27,12 +28,23 @@ public class Jumping : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void FixedUpdate()
+    {
+        Debug.Log(doubleJump);
+
+        if (CanJump() && !Input.GetButton("Jump"))
+        {
+            doubleJump = false;
+        }
+    }
+
     public void StartJump()
     {
-        if (!CanJump())
-            return;
-
-        StartCoroutine(JumpCoroutine());
+        if (CanJump() || doubleJump)
+        {
+            StartCoroutine(JumpCoroutine());
+            doubleJump = !doubleJump;
+        }
     }
 
     private IEnumerator JumpCoroutine()
@@ -49,7 +61,7 @@ public class Jumping : MonoBehaviour
         jumping = false;
     }
 
-    private bool CanJump()
+    public bool CanJump()
     {
         return Physics.CheckSphere(feetPivot.position, floorDistance, floorLayer) && !jumping;
     }
