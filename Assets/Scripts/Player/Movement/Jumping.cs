@@ -6,14 +6,19 @@ public class Jumping : MonoBehaviour
 {
     private Rigidbody rb;
 
-    private bool onGround;
     [SerializeField] private Transform feetPivot;
-    [SerializeField] private float groundedDistance = .3f;
+    [SerializeField] private float groundedDistance = 0.3f;
 
     [SerializeField] private LayerMask floor;
 
     [SerializeField] private float jumpForce = 0f;
     [SerializeField] private float maxFloorAngle = 60f;
+
+    [SerializeField] private float timeBetweenJump;
+
+    private const float jumpAnimTime = 0.40f;
+
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
@@ -24,6 +29,8 @@ public class Jumping : MonoBehaviour
     {
         if (!CanJump())
             yield break;
+        animator.SetTrigger("jump");
+        yield return new WaitForSeconds(jumpAnimTime);
         yield return new WaitForFixedUpdate();
 
         rb.AddForce(transform.up * jumpForce);
