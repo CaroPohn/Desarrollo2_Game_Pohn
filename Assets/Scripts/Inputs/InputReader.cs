@@ -24,6 +24,6 @@ public class InputReader : MonoBehaviour
     public void HandleJumpInput(InputAction.CallbackContext context)
     {
         if (jumping && context.started)
-            jumping.StartCoroutine(jumping.JumpCoroutine());
+            jumping.StartJump();
     }
 }

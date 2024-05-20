@@ -6,15 +6,17 @@ public class Jumping : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [SerializeField] private Transform feetPivot;
-    [SerializeField] private float groundedDistance = 0.3f;
+    private bool jumping;
 
-    [SerializeField] private LayerMask floor;
+    [SerializeField] private Transform feetPivot;
+    [SerializeField] private float floorDistance = 0.3f;
+
+    [SerializeField] private LayerMask floorLayer;
 
     [SerializeField] private float jumpForce = 0f;
     [SerializeField] private float maxFloorAngle = 60f;
 
-    [SerializeField] private float timeBetweenJump;
+    [SerializeField] private float timeBetweenJump = 0.2f;
 
     private const float jumpAnimTime = 0.40f;
 
@@ -25,28 +27,36 @@ public class Jumping : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public IEnumerator JumpCoroutine()
+    public void StartJump()
     {
         if (!CanJump())
-            yield break;
+            return;
+
+        StartCoroutine(JumpCoroutine());
+    }
+
+    private IEnumerator JumpCoroutine()
+    {
+        jumping = true;
         animator.SetTrigger("jump");
         yield return new WaitForSeconds(jumpAnimTime);
         yield return new WaitForFixedUpdate();
 
         rb.AddForce(transform.up * jumpForce);
+
+        yield return new WaitForSeconds(timeBetweenJump);
+
+        jumping = false;
     }
 
     private bool CanJump()
     {
-        if (Physics.Raycast(feetPivot.position, Vector3.down, out var hit, groundedDistance, floor))
-        {
-            var contactAngle = Vector3.Angle(hit.normal, Vector3.up);
+        return Physics.CheckSphere(feetPivot.position, floorDistance, floorLayer) && !jumping;
+    }
 
-            if (contactAngle >= maxFloorAngle)
-                return false;
-            return true;
-        }
-
-        return false;
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(feetPivot.position, floorDistance);
     }
 }
