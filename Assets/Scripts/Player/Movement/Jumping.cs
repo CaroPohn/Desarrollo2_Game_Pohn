@@ -18,6 +18,9 @@ public class Jumping : MonoBehaviour
 
     [SerializeField] private float timeBetweenJump = 0.2f;
 
+    private float coyoteTime = 0.5f;
+    private float coyoteTimeCounter;
+
     [SerializeField] private Animator animator;
 
     private void Awake()
@@ -33,11 +36,20 @@ public class Jumping : MonoBehaviour
         {
             doubleJump = false;
         }
+
+        if(CanJump())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
     }
 
     public void StartJump()
     {
-        if (CanJump() || doubleJump)
+        if (coyoteTimeCounter > 0f || doubleJump)
         {
             StartCoroutine(JumpCoroutine());
             doubleJump = !doubleJump;
