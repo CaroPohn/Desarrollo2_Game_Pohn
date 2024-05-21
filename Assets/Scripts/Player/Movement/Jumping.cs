@@ -15,11 +15,8 @@ public class Jumping : MonoBehaviour
     [SerializeField] private LayerMask floorLayer;
 
     [SerializeField] private float jumpForce = 0f;
-    //[SerializeField] private float maxFloorAngle = 60f;
 
     [SerializeField] private float timeBetweenJump = 0.2f;
-
-    private const float jumpAnimTime = 0.40f;
 
     [SerializeField] private Animator animator;
 
@@ -30,7 +27,7 @@ public class Jumping : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(doubleJump);
+        Debug.Log(doubleJump);            
 
         if (CanJump() && !Input.GetButton("Jump"))
         {
@@ -50,15 +47,22 @@ public class Jumping : MonoBehaviour
     private IEnumerator JumpCoroutine()
     {
         jumping = true;
-        animator.SetTrigger("jump");
-        yield return new WaitForSeconds(jumpAnimTime);
+
+        if(!doubleJump)
+            animator.SetBool("isJumping", true);
+        else if (doubleJump)
+            animator.SetBool("doubleJump", true);
+
         yield return new WaitForFixedUpdate();
 
         rb.AddForce(transform.up * jumpForce);
 
-        yield return new WaitForSeconds(timeBetweenJump);
+        if (!CanJump() && !doubleJump)
+            yield return new WaitForSeconds(timeBetweenJump);
 
         jumping = false;
+        animator.SetBool("isJumping", false);
+        animator.SetBool("doubleJump", false);
     }
 
     public bool CanJump()
@@ -70,5 +74,21 @@ public class Jumping : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(feetPivot.position, floorDistance);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            animator.SetBool("isFalling", true);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            animator.SetBool("isFalling", false);
+        }
     }
 }

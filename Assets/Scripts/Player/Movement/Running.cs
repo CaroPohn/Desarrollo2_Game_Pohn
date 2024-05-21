@@ -52,20 +52,4 @@ public class Running : MonoBehaviour
     {
         dir = newDir;
     }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("floor"))
-        {
-            animator.SetBool("isFalling", true);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("floor"))
-        {
-            animator.SetBool("isFalling", false);
-        }
-    }
 }

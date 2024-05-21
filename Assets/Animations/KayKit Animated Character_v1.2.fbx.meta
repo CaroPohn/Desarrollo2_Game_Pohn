@@ -529,8 +529,8 @@ ModelImporter:
       name: Jump
       takeName: KayKit Animated Character|Jump
       internalID: 1728088361261182183
-      firstFrame: 6
-      lastFrame: 39
+      firstFrame: 10
+      lastFrame: 27
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
