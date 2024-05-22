@@ -6,6 +6,7 @@ public class InputReader : MonoBehaviour
     public Running running;
     public Jumping jumping;
     public CameraLook cameraLook;
+    public Interact interact;
 
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
@@ -25,5 +26,11 @@ public class InputReader : MonoBehaviour
     {
         if (jumping && context.started)
             jumping.StartJump();
+    }
+
+    public void HandleInteractInput(InputAction.CallbackContext context)
+    {
+        if (interact && context.started)
+            interact.HandleInteractions();
     }
 }

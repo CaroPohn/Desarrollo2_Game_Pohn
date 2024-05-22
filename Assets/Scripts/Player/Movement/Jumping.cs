@@ -30,8 +30,6 @@ public class Jumping : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(doubleJump);            
-
         if (CanJump() && !Input.GetButton("Jump"))
         {
             doubleJump = false;

@@ -15,7 +15,6 @@ public class Running : MonoBehaviour
     [SerializeField] private float counterMovementForce;
     private Vector3 counterMovement;
 
-    //private AnimationsController animationsController;
     [SerializeField] private Animator animator;
 
     private void Awake()
@@ -37,13 +36,10 @@ public class Running : MonoBehaviour
 
         rb.AddForce(movementDir.normalized * movementForce + counterMovement);
 
-        //animationsController.playerAnimator.SetBool("isRunning", true);
-
         animator.SetBool("isRunning", true);
 
         if(dir ==  Vector3.zero)
         {
-            //animationsController.playerAnimator.SetBool("isRunning", false);
             animator.SetBool("isRunning", false);
         }
     }
@@ -52,4 +48,21 @@ public class Running : MonoBehaviour
     {
         dir = newDir;
     }
+
+    //public void HandleInteractions()
+    //{
+    //    float interactDistance = 2f;
+
+    //    if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance))
+    //    {
+    //       if(raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+    //       {
+    //            clearCounter.Interact();
+    //       }
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("-");
+    //    }
+    //}
 }
