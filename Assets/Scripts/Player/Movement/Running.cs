@@ -48,21 +48,4 @@ public class Running : MonoBehaviour
     {
         dir = newDir;
     }
-
-    //public void HandleInteractions()
-    //{
-    //    float interactDistance = 2f;
-
-    //    if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance))
-    //    {
-    //       if(raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
-    //       {
-    //            clearCounter.Interact();
-    //       }
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("-");
-    //    }
-    //}
 }

@@ -9,20 +9,15 @@ public class SelectedCounterVisual : MonoBehaviour
     [SerializeField] private ClearCounter clearCounter;
     [SerializeField] private GameObject visualGameObject;
 
+    bool isActive = false;
+
     private void Start()
     {
-        Interact.Instance.OnSelectedCounterChanged += Interact_OnSelectedCounterChanged;
-    }
 
-    private void Interact_OnSelectedCounterChanged(object sender, Interact.OnSelectedCounterChangedEventArgs e)
+    }
+    public void Interact_OnSelectedCounterChanged()
     {
-        if(e.selectedCounter == clearCounter)
-        {
-            visualGameObject.SetActive(true);
-        }
-        else
-        {
-            visualGameObject.SetActive(false);
-        }
+        isActive = !isActive;
+        visualGameObject.SetActive(isActive);
     }
 }
