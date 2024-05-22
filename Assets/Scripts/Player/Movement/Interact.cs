@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Interact : MonoBehaviour, IKitchenObjectParent
 {
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
@@ -21,13 +21,13 @@ public class Interact : MonoBehaviour, IKitchenObjectParent
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance))
         {
-            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
-                if (clearCounter != selectedCounter)
+                if (baseCounter != selectedCounter)
                 {
                     selectedCounter?.ToggleHighlight();
-                    clearCounter.ToggleHighlight();
-                    selectedCounter = clearCounter;
+                    baseCounter.ToggleHighlight();
+                    selectedCounter = baseCounter;
                 }
             }
             else

@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodCrate : MonoBehaviour
+public class FoodCrate : BaseCounter, IKitchenObjectParent
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Interact(Interact playerInteract)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!HasKitchenObject())
+        {
+            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
+            kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(playerInteract);
+        }
     }
 }
