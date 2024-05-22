@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
-  m_Name: Steak
+  m_Name: Burguer
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6329912826991809265, guid: 455fe1818cf1afa45bb7d3f811c0ca39, type: 3}
-  objectName: Steak
+  prefab: {fileID: 5015359561567538024, guid: e474d22e1d86566418c0296cdca93a59, type: 3}
+  objectName: Burguer
