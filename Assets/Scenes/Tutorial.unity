@@ -3468,7 +3468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1088181162}
   offset: {x: 0, y: 4.37, z: -10}
-  sensitivity: 200
+  sensitivity: 400
 --- !u!1 &1689823491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 17a6ccd0404af8e4d9858c2b764880c3, type: 3}
@@ -5355,6 +5355,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: MakeBurguer
       objectReference: {fileID: 0}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: twoBuns
+      value: 
+      objectReference: {fileID: 5438233250758074992, guid: 4a7855027687c0e478aa326af14053cd, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: cheeseSlice
+      value: 
+      objectReference: {fileID: 4777372519353897069, guid: ba759060b6aa9234fb704f094886eeb6, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: meatBurguer
+      value: 
+      objectReference: {fileID: 5939421956115764286, guid: 4bafeafe5382f7947b15a6beb0b14822, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: tomatoSlice
+      value: 
+      objectReference: {fileID: 3667214066993294094, guid: 7bcf938ba56307e41b2b0c8261638b46, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: lettuceSlice
+      value: 
+      objectReference: {fileID: 1102134730334387079, guid: e1fe28fcf5a57dd47b49c6151a095a05, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: objects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: objects.Array.data[1]
+      value: 
+      objectReference: {fileID: 5959434345242850507, guid: e474d22e1d86566418c0296cdca93a59, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: objects.Array.data[2]
+      value: 
+      objectReference: {fileID: -8990784391146102479, guid: bb7e6fdbce6bd234fb5b0f610cc7e686, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: objects.Array.data[3]
+      value: 
+      objectReference: {fileID: -7346604791184894455, guid: 7bd1d29c4dfaf3d4abc9e0f9af919547, type: 3}
+    - target: {fileID: 2621637100077704893, guid: 8ebce91567d75e846a11d6f27073cead, type: 3}
+      propertyPath: objects.Array.data[4]
+      value: 
+      objectReference: {fileID: 500728183429915809, guid: 4914c390c936b5542b0072ff315d470d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

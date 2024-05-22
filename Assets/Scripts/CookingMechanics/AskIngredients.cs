@@ -37,10 +37,23 @@ public class AskIngredients : BaseCounter
                     validItemsCounter++;
                 }
             }
+
             if(validItemsCounter >= objects.Count) 
-            {
-                //TODO: devolver la hamburguesa 
-                Debug.Log("Anvorguesa");
+            { 
+                if(!HasKitchenObject())
+                {
+                    Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
+                    kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
+                    return;
+                }
+
+                if (HasKitchenObject())
+                {
+                    if (!playerInteract.HasKitchenObject())
+                    {
+                        GetKitchenObject().SetKitchenObjectParent(playerInteract);
+                    }
+                }
             }
         }
     }
