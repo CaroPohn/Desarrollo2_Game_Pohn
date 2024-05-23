@@ -12,6 +12,7 @@ public class ClearCounter : BaseCounter
             if(playerInteract.HasKitchenObject())
             {
                 playerInteract.GetKitchenObject().SetKitchenObjectParent(this);
+                kitchenObject.transform.rotation = Quaternion.identity;
             }
         }
         else

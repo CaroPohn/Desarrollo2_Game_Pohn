@@ -10,7 +10,7 @@ public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     protected KitchenObject kitchenObject;
     [SerializeField] protected KitchenObjectSO kitchenObjectSO;
-    [SerializeField] protected Transform counterTopPoint;
+    [SerializeField] public Transform counterTopPoint;
 
     public abstract void Interact(Interact playerInteract);
 

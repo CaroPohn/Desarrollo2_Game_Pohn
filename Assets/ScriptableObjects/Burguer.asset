@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Burguer
   m_EditorClassIdentifier: 
   prefab: {fileID: 5015359561567538024, guid: e474d22e1d86566418c0296cdca93a59, type: 3}
-  objectName: Burguer
+  objectName: Burger
