@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     {
         MainMenu,
         Credits,
+        Controls,
         InitialLevel,
     }
 
@@ -21,6 +22,11 @@ public class MainMenu : MonoBehaviour
     public void Credits()
     {
         SceneManager.LoadScene((int)scenes.Credits);
+    }
+
+    public void Controls()
+    {
+        SceneManager.LoadScene((int)scenes.Controls);
     }
 
     public void Quit()

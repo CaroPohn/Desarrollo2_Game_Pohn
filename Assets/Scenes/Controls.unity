@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 472508769}
   - component: {fileID: 472508768}
   m_Layer: 0
-  m_Name: CreditsManager
+  m_Name: ControlsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 1194388141}
   - component: {fileID: 1194388140}
   m_Layer: 5
-  m_Name: CreditsNames
+  m_Name: ControlsKeys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,10 +728,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Developer: Carolina Pohn
+  m_text: 'WASD or Left Stick to move
 
 
-    Art: Kay Lousberg'
+    E or East Button to interact
+
+
+    Space
+    or South Button to jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1014,7 +1018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106817988}
   m_Layer: 0
-  m_Name: Credits
+  m_Name: Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

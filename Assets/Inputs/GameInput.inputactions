@@ -40,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Cut",
-                    "type": "Button",
-                    "id": "de29dfef-e4cb-418f-b8bd-83d47cb7d691",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -164,6 +155,17 @@
                 },
                 {
                     "name": "",
+                    "id": "cf0002d7-8439-46c8-9334-907c6ce583ac",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "805e92e9-f5d0-4860-8dec-c294653bf642",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -186,8 +188,41 @@
                 },
                 {
                     "name": "",
+                    "id": "4162ff87-6f88-4ec6-a42a-b15d1af26828",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "32c85b96-abec-46e5-b2ed-76273531b040",
                     "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43d3c011-6d03-4761-bb49-9b3ab754f159",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6755d762-86e6-4281-9428-62356766234f",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -219,23 +254,12 @@
                 },
                 {
                     "name": "",
-                    "id": "3c16b9f0-45c1-4a63-832b-d764a68ad89c",
-                    "path": "<Keyboard>/r",
+                    "id": "036c8280-d02f-452d-a359-386327489a93",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cut",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "950778c2-cbec-4aa4-9be9-3780cda81098",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cut",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

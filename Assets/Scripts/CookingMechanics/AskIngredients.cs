@@ -81,7 +81,10 @@ public class AskIngredients : BaseCounter
                     Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
                     kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
 
-                    return;
+                    for(int i = 0; i < checkItems.Length; i++)
+                    {
+                        checkItems[i] = false;
+                    }
                 }
 
                 if (HasKitchenObject())
