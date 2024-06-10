@@ -3532,7 +3532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1088181162}
   offset: {x: 0, y: 4.37, z: -10}
-  sensitivity: 300
+  sensitivity: 400
 --- !u!1 &1689823491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 17a6ccd0404af8e4d9858c2b764880c3, type: 3}
@@ -4205,10 +4205,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9f30631d-a242-45c0-bf93-47d6a680d360
     m_ActionName: Player/Interact[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: de29dfef-e4cb-418f-b8bd-83d47cb7d691
-    m_ActionName: Player/Cut[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -30,7 +30,7 @@ public class Jumping : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (CanJump() && !Input.GetButton("Jump"))
+        if (CanJump() && !Input.GetButton("Jump")) //cambiar el get button por una flag que registre cuando se presiona el boton
         {
             doubleJump = false;
         }
