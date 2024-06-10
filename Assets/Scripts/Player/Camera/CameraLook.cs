@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class CameraLook : MonoBehaviour
@@ -12,6 +13,9 @@ public class CameraLook : MonoBehaviour
 
     private void Awake()
     {
+        if (!target)
+            Debug.LogError("There is no target assigned!");
+
         mainCamera = Camera.main.transform;
         mainCamera.localPosition = offset;
     }
