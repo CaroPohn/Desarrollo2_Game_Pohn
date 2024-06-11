@@ -10,10 +10,8 @@ public class FoodCrate : BaseCounter, IKitchenObjectParent
         {
             if(!playerInteract.HasKitchenObject())
             {
-                Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
-                kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(playerInteract);
+                KitchenObject.SpawnKitchenObject(kitchenObjectSO, playerInteract);
             }
-
         }
     }
 }
