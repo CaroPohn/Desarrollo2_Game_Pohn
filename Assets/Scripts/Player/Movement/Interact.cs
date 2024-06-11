@@ -43,11 +43,19 @@ public class Interact : MonoBehaviour, IKitchenObjectParent
         }
     }
 
-    public void HandleInteractions()
+    public void HandleInteraction()
     {
         if(selectedCounter != null)
         {
             selectedCounter.Interact(this);
+        }
+    }
+
+    public void HandleInteractionAlternate()
+    {
+        if(selectedCounter != null)
+        {
+            selectedCounter.InteractAlternate(this);
         }
     }
 

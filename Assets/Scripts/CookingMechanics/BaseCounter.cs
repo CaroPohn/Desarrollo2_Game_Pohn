@@ -12,7 +12,15 @@ public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent
     [SerializeField] protected KitchenObjectSO kitchenObjectSO;
     [SerializeField] public Transform counterTopPoint;
 
-    public abstract void Interact(Interact playerInteract);
+    public virtual void Interact(Interact playerInteract)
+    {
+        Debug.LogError("BaseCounter.Interact();");
+    }
+
+    public virtual void InteractAlternate(Interact playerInteract)
+    {
+        Debug.LogError("BaseCounter.Interact();");
+    }
 
     public virtual void ToggleHighlight()
     {

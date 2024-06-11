@@ -31,6 +31,12 @@ public class InputReader : MonoBehaviour
     public void HandleInteractInput(InputAction.CallbackContext context)
     {
         if (interact && context.started)
-            interact.HandleInteractions();
+            interact.HandleInteraction();
+    }
+
+    public void HandleInteractAlternateInput(InputAction.CallbackContext context)
+    {
+        if (interact && context.started)
+            interact.HandleInteractionAlternate();
     }
 }
