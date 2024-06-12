@@ -7,7 +7,7 @@ public class Jumping : MonoBehaviour
     private Rigidbody rb;
 
     private bool jumping;
-    private bool doubleJump;
+    private bool canDoubleJump = true;
 
     [SerializeField] private Transform feetPivot;
     [SerializeField] private float floorDistance = 0.3f;
@@ -22,6 +22,7 @@ public class Jumping : MonoBehaviour
     private float coyoteTimeCounter;
 
     [SerializeField] private Animator animator;
+    Coroutine jumpCoroutine;
 
     private void Awake()
     {
@@ -30,12 +31,7 @@ public class Jumping : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (CanJump() && !Input.GetButton("Jump")) //cambiar el get button por una flag que registre cuando se presiona el boton
-        {
-            doubleJump = false;
-        }
-
-        if(CanJump())
+        if (CanJump())
         {
             coyoteTimeCounter = coyoteTime;
         }
@@ -47,30 +43,36 @@ public class Jumping : MonoBehaviour
 
     public void StartJump()
     {
-        if (coyoteTimeCounter > 0f || doubleJump)
+        if ((coyoteTimeCounter > 0f && !jumping) || canDoubleJump)
         {
-            StartCoroutine(JumpCoroutine());
-            doubleJump = !doubleJump;
+            if (jumpCoroutine != null)
+                StopCoroutine(jumpCoroutine);
+
+            jumpCoroutine = StartCoroutine(JumpCoroutine());
         }
     }
 
     private IEnumerator JumpCoroutine()
     {
-        jumping = true;
-
-        if(!doubleJump)
-            animator.SetBool("isJumping", true);
-        else if (doubleJump)
+        if (jumping)
+        {
+            canDoubleJump = false;
             animator.SetBool("doubleJump", true);
+            if (rb.velocity.y < 0)
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        }
+        else
+            animator.SetBool("isJumping", true);
+
+        jumping = true;
 
         yield return new WaitForFixedUpdate();
 
         rb.AddForce(transform.up * jumpForce);
 
-        if (!CanJump() && !doubleJump)
+        if (!CanJump() && !canDoubleJump)
             yield return new WaitForSeconds(timeBetweenJump);
 
-        jumping = false;
         animator.SetBool("isJumping", false);
         animator.SetBool("doubleJump", false);
     }
@@ -99,6 +101,8 @@ public class Jumping : MonoBehaviour
         if (collision.gameObject.CompareTag("floor"))
         {
             animator.SetBool("isFalling", false);
+            jumping = false;
+            canDoubleJump = true;
         }
     }
 }
