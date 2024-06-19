@@ -15,8 +15,11 @@ public class CuttingCounter : BaseCounter
         {
             if (playerInteract.HasKitchenObject())
             {
-                playerInteract.GetKitchenObject().SetKitchenObjectParent(this);
-                kitchenObject.transform.rotation = Quaternion.identity;
+                if (HasRecipeWithInput(playerInteract.GetKitchenObject().GetKitchenObjectSO()))
+                {
+                    playerInteract.GetKitchenObject().SetKitchenObjectParent(this);
+                    kitchenObject.transform.rotation = Quaternion.identity;
+                }
             }
         }
         else
@@ -28,9 +31,10 @@ public class CuttingCounter : BaseCounter
         }
     }
 
+
     public override void InteractAlternate(Interact playerInteract)
     {
-        if (HasKitchenObject())
+        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
 
@@ -38,6 +42,18 @@ public class CuttingCounter : BaseCounter
 
             KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
         }
+    }
+
+    private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)
+    {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
+        {
+            if (cuttingRecipeSO.input == inputKitchenObjectSO)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
