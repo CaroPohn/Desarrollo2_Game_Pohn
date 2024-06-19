@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FoodCrate : BaseCounter, IKitchenObjectParent
 {
+    [SerializeField] protected KitchenObjectSO kitchenObjectSO;
+
     public override void Interact(Interact playerInteract)
     {
         if (!HasKitchenObject())

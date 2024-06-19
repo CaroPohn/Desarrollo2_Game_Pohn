@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class OrderTable : BaseCounter
 {
+    [SerializeField] protected KitchenObjectSO kitchenObjectSO;
     public string sceneName;
 
     public override void Interact(Interact playerInteract)

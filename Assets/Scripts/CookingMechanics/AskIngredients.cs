@@ -7,6 +7,8 @@ public class AskIngredients : BaseCounter
     [SerializeField] private List<KitchenObject> objects;
     private bool[] checkItems;
 
+    [SerializeField] protected KitchenObjectSO kitchenObjectSO;
+
     [SerializeField] private GameObject tomatoSlice;
     [SerializeField] private GameObject lettuceSlice;
     [SerializeField] private GameObject cheeseSlice;

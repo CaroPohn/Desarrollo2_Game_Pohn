@@ -9,7 +9,7 @@ public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent
     protected bool isHighlighted = false;
 
     protected KitchenObject kitchenObject;
-    [SerializeField] protected KitchenObjectSO kitchenObjectSO;
+    //[SerializeField] protected KitchenObjectSO kitchenObjectSO;
     [SerializeField] public Transform counterTopPoint;
 
     public virtual void Interact(Interact playerInteract)
@@ -19,7 +19,7 @@ public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     public virtual void InteractAlternate(Interact playerInteract)
     {
-        Debug.LogError("BaseCounter.Interact();");
+        Debug.LogError("BaseCounter.InteractAlternate();");
     }
 
     public virtual void ToggleHighlight()
