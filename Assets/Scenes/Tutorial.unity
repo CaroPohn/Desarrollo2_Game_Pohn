@@ -3532,7 +3532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1088181162}
   offset: {x: 0, y: 4.37, z: -10}
-  sensitivity: 300
+  sensitivity: 500
 --- !u!1 &1689823491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 17a6ccd0404af8e4d9858c2b764880c3, type: 3}
