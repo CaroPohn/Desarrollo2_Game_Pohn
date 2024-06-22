@@ -3363,6 +3363,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 202892766}
     m_Modifications:
+    - target: {fileID: 881912310174589125, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 881912310174589125, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 881912310174589125, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 881912310174589125, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1256228077087185375, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.92
@@ -3406,6 +3422,26 @@ PrefabInstance:
     - target: {fileID: 6858907428898548774, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
       propertyPath: m_Name
       value: KnifeCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034216797061373202, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034216797061373202, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.7552001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034216797061373202, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034216797061373202, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.696
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034216797061373202, guid: ee364e2a68947834a9afa1d4e1747ec5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3680,7 +3716,7 @@ Transform:
   m_GameObject: {fileID: 1642341676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09977948, y: 3.41, z: 0.09674406}
+  m_LocalPosition: {x: -0.09977948, y: 3.41, z: 5.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3700,7 +3736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1088181162}
-  offset: {x: 0, y: 4.37, z: -10}
+  offset: {x: 0, y: 4.37, z: -6.04}
   sensitivity: 500
 --- !u!1 &1689823491 stripped
 GameObject:
