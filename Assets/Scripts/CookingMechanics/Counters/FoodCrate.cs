@@ -6,6 +6,8 @@ public class FoodCrate : BaseCounter, IKitchenObjectParent
 {
     [SerializeField] protected KitchenObjectSO kitchenObjectSO;
 
+    [SerializeField] string ingredientName;
+
     public override void Interact(Interact playerInteract)
     {
         if (!HasKitchenObject())
