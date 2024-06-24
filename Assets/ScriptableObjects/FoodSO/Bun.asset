@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3373835463684048581, guid: bf4f502ee2900694f968683be5a4c5f3, type: 3}
   objectName: Bun
+  mesh: {fileID: 4755037694683280153, guid: 6532cd5bd38c9b647b91a2b0c0124242, type: 3}
+  material: {fileID: -1724080987372072942, guid: 6532cd5bd38c9b647b91a2b0c0124242, type: 3}

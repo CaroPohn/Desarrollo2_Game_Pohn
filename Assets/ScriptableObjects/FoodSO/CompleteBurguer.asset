@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3520367743581264022, guid: 8b6616ab3abeaa94d887b8a075dede42, type: 3}
   objectName: Complete Burger
+  mesh: {fileID: -2646811599292358415, guid: 3f04b36821ed203459f148d7ccd5d563, type: 3}
+  material: {fileID: -1724080987372072942, guid: 3f04b36821ed203459f148d7ccd5d563, type: 3}

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1102134730334387079, guid: e1fe28fcf5a57dd47b49c6151a095a05, type: 3}
   objectName: Lettuce Slices
+  mesh: {fileID: 4387450455345236887, guid: 9802e476ea8d75640853287026cf230b, type: 3}
+  material: {fileID: -1724080987372072942, guid: 9802e476ea8d75640853287026cf230b, type: 3}

@@ -14,7 +14,9 @@ public class FoodCrate : BaseCounter, IKitchenObjectParent
         {
             if(!playerInteract.HasKitchenObject())
             {
-                KitchenObject.SpawnKitchenObject(kitchenObjectSO, playerInteract);
+                KitchenObject kitchenObject = IngredientFactory.Instance.GetIngredient(kitchenObjectSO);
+
+                KitchenObject.SpawnKitchenObject(kitchenObject, playerInteract);
             }
         }
     }

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3822262710613123897, guid: bb7e6fdbce6bd234fb5b0f610cc7e686, type: 3}
   objectName: Cheese Block
+  mesh: {fileID: 1106177787490279471, guid: 8dddbec38ab199743925ac92dfb20211, type: 3}
+  material: {fileID: -1724080987372072942, guid: 8dddbec38ab199743925ac92dfb20211, type: 3}

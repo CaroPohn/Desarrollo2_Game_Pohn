@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3822262710613123897, guid: 4914c390c936b5542b0072ff315d470d, type: 3}
   objectName: Tomato
+  mesh: {fileID: -5321038836818693795, guid: cb13739e799390e43aee9dd2af7b3de4, type: 3}
+  material: {fileID: -1724080987372072942, guid: cb13739e799390e43aee9dd2af7b3de4, type: 3}

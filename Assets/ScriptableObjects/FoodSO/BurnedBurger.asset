@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 807442177454013893, guid: b8b5df41dc85654488d26b292269e2bc, type: 3}
   objectName: Burned Burger
+  mesh: {fileID: -4774374933590487384, guid: 509cb93255db2a1418736f51c0e9be30, type: 3}
+  material: {fileID: -1724080987372072942, guid: 509cb93255db2a1418736f51c0e9be30, type: 3}

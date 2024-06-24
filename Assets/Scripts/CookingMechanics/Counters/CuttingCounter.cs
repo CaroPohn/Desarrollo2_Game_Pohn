@@ -64,7 +64,9 @@ public class CuttingCounter : BaseCounter
 
                 GetKitchenObject().DestroySelf();
 
-                KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
+                KitchenObject kitchenObject = IngredientFactory.Instance.GetIngredient(outputKitchenObjectSO);
+
+                KitchenObject.SpawnKitchenObject(kitchenObject, this);
             }
         }
     }

@@ -33,7 +33,9 @@ public class FryingState : State
         {
             stoveCounter.GetKitchenObject().DestroySelf();
 
-            KitchenObject.SpawnKitchenObject(stoveCounter.FryingRecipe.output, stoveCounter);
+            KitchenObject kitchenObject = IngredientFactory.Instance.GetIngredient(stoveCounter.FryingRecipe.output);
+
+            KitchenObject.SpawnKitchenObject(kitchenObject, stoveCounter);
 
             CallChangeState<FriedState>();
         }
