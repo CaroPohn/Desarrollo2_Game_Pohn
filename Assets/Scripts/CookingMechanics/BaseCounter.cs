@@ -14,12 +14,12 @@ public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     public virtual void Interact(Interact playerInteract)
     {
-        Debug.LogError("BaseCounter.Interact();");
+        //Debug.LogError("BaseCounter.Interact();");
     }
 
     public virtual void InteractAlternate(Interact playerInteract)
     {
-        Debug.LogError("BaseCounter.InteractAlternate();");
+        //Debug.LogError("BaseCounter.InteractAlternate();");
     }
 
     public virtual void ToggleHighlight()
