@@ -17,13 +17,8 @@ public class StoveCounter : BaseCounter
 
     [SerializeField] private StoveCounterFSM fsm;
 
-    //public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
-    //public class OnStateChangedEventArgs : EventArgs
-    //{
-
-    //}
-
-    //public UnityEvent<StoveCounter> OnStateChanged { get; set; } = new UnityEvent<StoveCounter>();
+    [SerializeField] public UnityEvent OnStoveOn;
+    [SerializeField] public UnityEvent OnStoveOff;
 
     public override void Interact(Interact playerInteract)
     {
@@ -38,6 +33,8 @@ public class StoveCounter : BaseCounter
 
                     fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().kitchenObjectSO);
 
+                    OnStoveOn?.Invoke();
+
                     fsm.OnStoveInteract<FryingState>();
                 }
             }
@@ -46,7 +43,11 @@ public class StoveCounter : BaseCounter
         {
             if (!playerInteract.HasKitchenObject())
             {
+
                 GetKitchenObject().SetKitchenObjectParent(playerInteract);
+
+                OnStoveOff?.Invoke();
+
                 fsm.OnStoveInteract<IdleState>();
             }
         }

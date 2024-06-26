@@ -9,4 +9,5 @@ public class StoveCounterVisuals : MonoBehaviour
 
     [SerializeField] private StoveCounter stoveCounter;
 
+
 }
