@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StoveCounter : BaseCounter
 {
@@ -14,6 +16,14 @@ public class StoveCounter : BaseCounter
     public BurningRecipeSO BurningRecipe { get { return burningRecipeSO; } set { burningRecipeSO = value; } }
 
     [SerializeField] private StoveCounterFSM fsm;
+
+    //public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
+    //public class OnStateChangedEventArgs : EventArgs
+    //{
+
+    //}
+
+    //public UnityEvent<StoveCounter> OnStateChanged { get; set; } = new UnityEvent<StoveCounter>();
 
     public override void Interact(Interact playerInteract)
     {
