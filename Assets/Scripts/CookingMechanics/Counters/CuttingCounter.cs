@@ -16,6 +16,7 @@ public class CuttingCounter : BaseCounter
         public float progressNormalized;
     }
 
+    //TODO: Change to System.Action
     public event EventHandler OnCut;
 
     public override void Interact(Interact playerInteract)
@@ -45,29 +46,33 @@ public class CuttingCounter : BaseCounter
         }
     }
 
-
+    /// <summary>
+    /// When a player interacts without leaving an ingredient, like cutting the vegetable.
+    /// </summary>
+    /// <param name="playerInteract"></param>
     public override void InteractAlternate(Interact playerInteract)
     {
-        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
+        //TODO: Add cooldown
+        if (!HasKitchenObject() || !HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
+            return;
+
+        cuttingProgress++;
+
+        OnCut?.Invoke(this, EventArgs.Empty);
+
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+        OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs { progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax });
+
+        if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
         {
-            cuttingProgress++;
+            KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
 
-            OnCut?.Invoke(this, EventArgs.Empty);
+            GetKitchenObject().DestroySelf();
 
-            CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            KitchenObject kitchenObject = IngredientFactory.Instance.GetIngredient(outputKitchenObjectSO);
 
-            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs { progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax });
-
-            if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
-            {
-                KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
-
-                GetKitchenObject().DestroySelf();
-
-                KitchenObject kitchenObject = IngredientFactory.Instance.GetIngredient(outputKitchenObjectSO);
-
-                KitchenObject.SpawnKitchenObject(kitchenObject, this);
-            }
+            KitchenObject.SpawnKitchenObject(kitchenObject, this);
         }
     }
 

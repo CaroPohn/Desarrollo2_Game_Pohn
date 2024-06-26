@@ -5,9 +5,19 @@ using UnityEngine;
 
 public abstract class State : ScriptableObject
 {
+    [Flags]
+    public enum ShouldLog
+    {
+        None = 0,
+        Update,
+        FixedUpdate,
+        LateUpdate,
+    }
     protected List<State> nextStates;
 
-    public event Action<State> onStateChanged;
+    public event Action<State> onFinished;
+    [SerializeField] private bool shouldLogUpdate = false;
+    [SerializeField] private ShouldLog shouldLog = ShouldLog.None;
 
     public virtual void Enter(List<State> possibleStates, params object[] objects)
     {
@@ -15,10 +25,12 @@ public abstract class State : ScriptableObject
     }
     public virtual void StateUpdate()
     {
-        Debug.Log("Update");
+        if(shouldLogUpdate)
+            Debug.Log("Update");
     }
     public virtual void StateFixedUpdate()
     {
+        //TOOD: Add the rest of the ifs
         Debug.Log("FixedUpdate");
     }
     public virtual void StateLateUpdate()
@@ -36,7 +48,7 @@ public abstract class State : ScriptableObject
         {
             if(state as T)
             {
-                onStateChanged?.Invoke(state);
+                onFinished?.Invoke(state);
             }
         }
     }

@@ -12,12 +12,12 @@ public class StoveCounterFSM : FSM
         if (currentState != null)
         {
             currentState.Exit();
-            currentState.onStateChanged -= ChangeState;
+            currentState.onFinished -= ChangeState;
         }
 
         currentState = newState;
 
-        currentState.onStateChanged += ChangeState;
+        currentState.onFinished += ChangeState;
 
         currentState.Enter(states, stoveCounter);
     }

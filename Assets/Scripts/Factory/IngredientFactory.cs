@@ -25,6 +25,7 @@ public class IngredientFactory : MonoBehaviour
             return instance;
         }
     }
+
     private void Awake()
     {
         if (instance != null)
@@ -32,10 +33,11 @@ public class IngredientFactory : MonoBehaviour
 
         instance = this;
 
-        pool = new ObjectPool<KitchenObject>(CreateFunc, OnGet, OnRelease, OnDest, false, 10, 20);
+        //TODO: Move to Start
+        pool = new ObjectPool<KitchenObject>(CreateFunc, OnGet, OnRelease, OnDestroyPoolObject, false, 10, 20);
     }
 
-    private void OnDest(KitchenObject kitchenObject)
+    private void OnDestroyPoolObject(KitchenObject kitchenObject)
     {
         Destroy(kitchenObject.gameObject);
     }
@@ -67,9 +69,7 @@ public class IngredientFactory : MonoBehaviour
 
     public KitchenObject ConfigureIngredient(KitchenObjectSO KOConfig, KitchenObject kitchenObject)
     {
-        kitchenObject.transform.localPosition = Vector3.zero;
-        kitchenObject.transform.position = Vector3.zero;
-        kitchenObject.transform.rotation = Quaternion.identity;
+        kitchenObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
 
         kitchenObject.kitchenObjectSO = KOConfig;
         kitchenObject.GetComponentInChildren<MeshFilter>().mesh = KOConfig.mesh;

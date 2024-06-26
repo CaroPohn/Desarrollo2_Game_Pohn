@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class KitchenObjectSO : ScriptableObject
 {
     [Header("Gameplay")]
+    [Obsolete]
     public Transform prefab;
     [SerializeField] public string objectName;
     [Header("Config")]

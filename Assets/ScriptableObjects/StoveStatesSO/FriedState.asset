@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0ada135a3a73d43aae5d17db3a6c93, type: 3}
   m_Name: FriedState
   m_EditorClassIdentifier: 
+  shouldLogUpdate: 0
+  shouldLog: 0
