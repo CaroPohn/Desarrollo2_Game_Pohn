@@ -16,8 +16,7 @@ public class CuttingCounter : BaseCounter
         public float progressNormalized;
     }
 
-    //TODO: Change to System.Action
-    public event EventHandler OnCut;
+    public event Action OnCut;
 
     public override void Interact(Interact playerInteract)
     {
@@ -58,7 +57,7 @@ public class CuttingCounter : BaseCounter
 
         cuttingProgress++;
 
-        OnCut?.Invoke(this, EventArgs.Empty);
+        OnCut?.Invoke();
 
         CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
