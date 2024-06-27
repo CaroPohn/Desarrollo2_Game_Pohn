@@ -18,6 +18,15 @@ public class CuttingCounter : BaseCounter
 
     public event Action OnCut;
 
+    [SerializeField] private float cutCooldown;
+
+    private float lastCutTime;
+
+    private void Start()
+    {
+        lastCutTime = -cutCooldown;
+    }
+
     public override void Interact(Interact playerInteract)
     {
         if (!HasKitchenObject())
@@ -51,9 +60,13 @@ public class CuttingCounter : BaseCounter
     /// <param name="playerInteract"></param>
     public override void InteractAlternate(Interact playerInteract)
     {
-        //TODO: Add cooldown
+        if (Time.time - lastCutTime < cutCooldown)
+            return;
+
         if (!HasKitchenObject() || !HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
             return;
+
+        lastCutTime = Time.time;
 
         cuttingProgress++;
 
