@@ -17,7 +17,6 @@ public abstract class State : ScriptableObject
 
     public event Action<State> onFinished;
     [SerializeField] private bool shouldLogUpdate = false;
-    [SerializeField] private ShouldLog shouldLog = ShouldLog.None;
 
     public virtual void Enter(List<State> possibleStates, params object[] objects)
     {
