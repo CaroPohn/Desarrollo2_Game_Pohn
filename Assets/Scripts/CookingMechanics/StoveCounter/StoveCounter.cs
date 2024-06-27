@@ -51,6 +51,8 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                 OnStoveOff?.Invoke();
 
+                UpdateProgress(0f);
+
                 fsm.OnStoveInteract<IdleState>();
             }
         }
