@@ -32,8 +32,10 @@ public class IngredientFactory : MonoBehaviour
             Destroy(this.gameObject);
 
         instance = this;
+    }
 
-        //TODO: Move to Start
+    private void Start()
+    {
         pool = new ObjectPool<KitchenObject>(CreateFunc, OnGet, OnRelease, OnDestroyPoolObject, false, 10, 20);
     }
 
