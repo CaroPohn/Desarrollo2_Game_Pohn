@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,12 +23,17 @@ public class FriedState : State
         }
 
         stoveCounter.BurningRecipe = stoveCounter.GetBurningRecipeSOWithInput(stoveCounter.GetKitchenObject().kitchenObjectSO);
+
         burningTimer = 0f;
+
+        stoveCounter.UpdateProgress(burningTimer / stoveCounter.BurningRecipe.burningTimer);
     }
 
     public override void StateUpdate()
     {
         burningTimer += Time.deltaTime;
+
+        stoveCounter.UpdateProgress(burningTimer / stoveCounter.BurningRecipe.burningTimer);
 
         if (burningTimer > stoveCounter.BurningRecipe.burningTimer)
         {
@@ -36,6 +42,8 @@ public class FriedState : State
             KitchenObject kitchenObject = IngredientFactory.Instance.GetIngredient(stoveCounter.BurningRecipe.output);
 
             KitchenObject.SpawnKitchenObject(kitchenObject, stoveCounter);
+
+            stoveCounter.UpdateProgress(0f);
         }
     }
 

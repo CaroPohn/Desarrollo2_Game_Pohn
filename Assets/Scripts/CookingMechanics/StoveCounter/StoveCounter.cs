@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class StoveCounter : BaseCounter
+public class StoveCounter : BaseCounter, IHasProgress
 {
     [SerializeField] private FryingRecipeSO[] fryingRecipeSOArray;
     [SerializeField] private BurningRecipeSO[] burningRecipeSOArray;
@@ -19,6 +19,9 @@ public class StoveCounter : BaseCounter
 
     [SerializeField] public UnityEvent OnStoveOn;
     [SerializeField] public UnityEvent OnStoveOff;
+
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
+    public float progress;
 
     public override void Interact(Interact playerInteract)
     {
@@ -98,5 +101,12 @@ public class StoveCounter : BaseCounter
         }
 
         return null;
+    }
+
+    public void UpdateProgress(float newProgress)
+    {
+        progress = newProgress;
+
+        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progressNormalized = progress});
     }
 }

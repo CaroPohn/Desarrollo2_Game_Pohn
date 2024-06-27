@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +24,15 @@ public class FryingState : State
         }
 
         fryingTimer = 0f;
+
+        stoveCounter.UpdateProgress(fryingTimer / stoveCounter.FryingRecipe.fryingTimerMax);
     }
 
     public override void StateUpdate()
     {
         fryingTimer += Time.deltaTime;
+
+        stoveCounter.UpdateProgress(fryingTimer / stoveCounter.FryingRecipe.fryingTimerMax);
 
         if (fryingTimer > stoveCounter.FryingRecipe.fryingTimerMax)
         {
