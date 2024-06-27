@@ -30,16 +30,18 @@ public abstract class State : ScriptableObject
     }
     public virtual void StateFixedUpdate()
     {
-        //TOOD: Add the rest of the ifs
-        Debug.Log("FixedUpdate");
+        if (shouldLogUpdate)
+            Debug.Log("FixedUpdate");
     }
     public virtual void StateLateUpdate()
     {
-        Debug.Log("LateUpdate");
+        if (shouldLogUpdate)
+            Debug.Log("LateUpdate");
     }
     public virtual void Exit()
     {
-        Debug.Log("Exit");
+        if (shouldLogUpdate)
+            Debug.Log("Exit");
     }
 
     public void CallChangeState<T>() where T : State
