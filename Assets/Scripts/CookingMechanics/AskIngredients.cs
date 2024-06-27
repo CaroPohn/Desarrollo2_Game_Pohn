@@ -80,8 +80,8 @@ public class AskIngredients : BaseCounter
                         Destroy(item);
                     }
 
-                    Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
-                    kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
+                    //Transform kitchenObjectTransform = Instantiate(kitchenObjectSO);
+                    //kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
 
                     for(int i = 0; i < checkItems.Length; i++)
                     {

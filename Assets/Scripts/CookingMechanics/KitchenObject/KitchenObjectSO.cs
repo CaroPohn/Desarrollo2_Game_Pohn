@@ -7,8 +7,7 @@ using UnityEngine;
 public class KitchenObjectSO : ScriptableObject
 {
     [Header("Gameplay")]
-    [Obsolete]
-    public Transform prefab;
+
     [SerializeField] public string objectName;
     [Header("Config")]
     [SerializeField] public Mesh mesh;
