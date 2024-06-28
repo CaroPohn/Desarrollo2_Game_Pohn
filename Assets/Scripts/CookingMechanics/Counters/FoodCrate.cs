@@ -6,17 +6,15 @@ public class FoodCrate : BaseCounter, IKitchenObjectParent
 {
     [SerializeField] protected KitchenObjectSO kitchenObjectSO;
 
-    [SerializeField] string ingredientName;
-
     public override void Interact(Interact playerInteract)
     {
         if (!HasKitchenObject())
         {
             if(!playerInteract.HasKitchenObject())
             {
-                KitchenObject kitchenObject = IngredientFactory.Instance.GetIngredient(kitchenObjectSO);
+                KitchenObject kitchenObject = KitchenObjectFactory.Instance.GetKitchenObjectCrafted(kitchenObjectSO);
 
-                KitchenObject.SpawnKitchenObject(kitchenObject, playerInteract);
+                KitchenObject.SetParentSpawnedKitchenObject(kitchenObject, playerInteract);
             }
         }
     }

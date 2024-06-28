@@ -11,7 +11,7 @@ public class KitchenObject : MonoBehaviour
 
     public KitchenObjectSO GetKitchenObjectSO() { return kitchenObjectSO; }
 
-    public UnityEvent<KitchenObject> OnObjectDestroy { get; set; } = new UnityEvent<KitchenObject>();
+    public UnityEvent<KitchenObject> OnKitchenObjectDestroy { get; set; } = new UnityEvent<KitchenObject>();
 
     public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent)
     {
@@ -44,15 +44,11 @@ public class KitchenObject : MonoBehaviour
     {
         kitchenObjectParent.ClearKitchenObject();
 
-        OnObjectDestroy.Invoke(this);
+        OnKitchenObjectDestroy.Invoke(this);
     }
 
-    public static KitchenObject SpawnKitchenObject(KitchenObject kitchenObject, IKitchenObjectParent kitchenObjectParent)
+    public static KitchenObject SetParentSpawnedKitchenObject(KitchenObject kitchenObject, IKitchenObjectParent kitchenObjectParent)
     {
-        
-        //kitchenObjectSO.prefab = lo que devuelva la factory
-        //setear como activo ese prefab
-
         kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
 
         return kitchenObject;
