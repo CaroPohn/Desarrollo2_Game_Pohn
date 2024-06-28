@@ -9,9 +9,6 @@ public class KitchenObjectFactory : MonoBehaviour
 {
     private static KitchenObjectFactory instance = null;
 
-    //TODO: Borrar esto
-    [SerializeField] private KitchenObjectSO[] ingredients;
-
     [SerializeField] private KitchenObject defaultPrefab;
 
     private ObjectPool<KitchenObject> pool;
