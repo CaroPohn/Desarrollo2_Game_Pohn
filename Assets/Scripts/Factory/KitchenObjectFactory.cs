@@ -5,22 +5,23 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class IngredientFactory : MonoBehaviour
+public class KitchenObjectFactory : MonoBehaviour
 {
-    private static IngredientFactory instance = null;
+    private static KitchenObjectFactory instance = null;
 
+    //TODO: Borrar esto
     [SerializeField] private KitchenObjectSO[] ingredients;
 
     [SerializeField] private KitchenObject defaultPrefab;
 
     private ObjectPool<KitchenObject> pool;
 
-    public static IngredientFactory Instance
+    public static KitchenObjectFactory Instance
     {
         get
         {
             if (instance == null)
-                instance = FindObjectOfType<IngredientFactory>();
+                instance = FindObjectOfType<KitchenObjectFactory>();
 
             return instance;
         }
@@ -47,7 +48,7 @@ public class IngredientFactory : MonoBehaviour
     private void OnRelease(KitchenObject kitchenObject)
     {
         kitchenObject.gameObject.SetActive(false);
-        kitchenObject.OnObjectDestroy.RemoveListener(instance.OnRelease);
+        kitchenObject.OnKitchenObjectDestroy.RemoveListener(instance.OnRelease);
     }
 
     private void OnGet(KitchenObject kitchenObject)
@@ -60,16 +61,16 @@ public class IngredientFactory : MonoBehaviour
         return Instantiate(defaultPrefab);
     }
 
-    public KitchenObject GetIngredient(KitchenObjectSO KOConfig)
+    public KitchenObject GetKitchenObjectCrafted(KitchenObjectSO KOConfig)
     {
         var newIngredient = pool.Get();
 
-        newIngredient = ConfigureIngredient(KOConfig, newIngredient);
+        newIngredient = ConfigureKitchenObject(KOConfig, newIngredient);
 
         return newIngredient;
     }
 
-    public KitchenObject ConfigureIngredient(KitchenObjectSO KOConfig, KitchenObject kitchenObject)
+    public KitchenObject ConfigureKitchenObject(KitchenObjectSO KOConfig, KitchenObject kitchenObject)
     {
         kitchenObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
 
@@ -77,7 +78,7 @@ public class IngredientFactory : MonoBehaviour
         kitchenObject.GetComponentInChildren<MeshFilter>().mesh = KOConfig.mesh;
         kitchenObject.GetComponentInChildren<MeshRenderer>().material = KOConfig.material;
 
-        kitchenObject.OnObjectDestroy.AddListener(instance.OnRelease);
+        kitchenObject.OnKitchenObjectDestroy.AddListener(instance.OnRelease);
 
         return kitchenObject;
     }
