@@ -44,9 +44,24 @@ public class StoveCounter : BaseCounter, IHasProgress
         }
         else
         {
-            if (!playerInteract.HasKitchenObject())
+            if(playerInteract.HasKitchenObject())
             {
+                if (playerInteract.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
 
+                        OnStoveOff?.Invoke();
+
+                        UpdateProgress(0f);
+
+                        fsm.OnStoveInteract<IdleState>();
+                    }
+                }
+            }
+            else
+            {
                 GetKitchenObject().SetKitchenObjectParent(playerInteract);
 
                 OnStoveOff?.Invoke();
@@ -63,20 +78,6 @@ public class StoveCounter : BaseCounter, IHasProgress
         FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputKitchenObjectSO);
 
         return fryingRecipeSO != null;
-    }
-
-    private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
-    {
-        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputKitchenObjectSO);
-
-        if (fryingRecipeSO != null)
-        {
-            return fryingRecipeSO.output;
-        }
-        else
-        {
-            return null;
-        }
     }
 
     private FryingRecipeSO GetFryingRecipeSOWithInput(KitchenObjectSO inputKitchenObjectSO)

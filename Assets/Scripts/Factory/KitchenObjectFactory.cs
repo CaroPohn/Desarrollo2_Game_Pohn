@@ -10,6 +10,7 @@ public class KitchenObjectFactory : MonoBehaviour
     private static KitchenObjectFactory instance = null;
 
     [SerializeField] private KitchenObject defaultPrefab;
+    [SerializeField] private PlateKitchenObject defaultPlatePrefab;
 
     private ObjectPool<KitchenObject> pool;
 
@@ -60,7 +61,20 @@ public class KitchenObjectFactory : MonoBehaviour
 
     public KitchenObject GetKitchenObjectCrafted(KitchenObjectSO KOConfig)
     {
-        var newIngredient = pool.Get();
+        //var newIngredient = pool.Get();
+
+        //newIngredient = ConfigureKitchenObject(KOConfig, newIngredient);
+
+        KitchenObject newIngredient;
+
+        if (KOConfig.objectName == "Plate")
+        {
+            newIngredient = Instantiate(defaultPlatePrefab);
+        }
+        else
+        {
+            newIngredient = pool.Get();
+        }
 
         newIngredient = ConfigureKitchenObject(KOConfig, newIngredient);
 

@@ -18,7 +18,7 @@ public class Jumping : MonoBehaviour
 
     [SerializeField] private float timeBetweenJump = 0.2f;
 
-    private float coyoteTime = 0.5f;
+    private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
     [SerializeField] private Animator animator;

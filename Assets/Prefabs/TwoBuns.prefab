@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5438233250758074992}
+  - component: {fileID: 4820043188465454733}
   m_Layer: 0
   m_Name: TwoBuns
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   - {fileID: 2777722051557086321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4820043188465454733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682994828890037914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f003bcfaa62c245963b47b61951d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kitchenObjectSO: {fileID: 11400000, guid: 4c2e5942917fdd74ab6b781802fe8981, type: 2}
 --- !u!1001 &2379811555960763290
 PrefabInstance:
   m_ObjectHideFlags: 0

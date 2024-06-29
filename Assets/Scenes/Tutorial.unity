@@ -643,8 +643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91803b2ff7bc7f49950bfcdf7264060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredients: []
   defaultPrefab: {fileID: -7346604791184894455, guid: 340b9979d0bc296458c0aabb029e3c22, type: 3}
+  defaultPlatePrefab: {fileID: 7975762900777819744, guid: 8e657633eb8cfcc468c4a274e63fbe3a, type: 3}
 --- !u!4 &266956384
 Transform:
   m_ObjectHideFlags: 0
