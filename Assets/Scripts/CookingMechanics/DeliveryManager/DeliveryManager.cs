@@ -18,6 +18,9 @@ public class DeliveryManager : MonoBehaviour
     public event Action OnRecipeSpawned;
     public event Action OnRecipeCompleted;
 
+    public event Action OnRecipeSuccess;
+    public event Action OnRecipeFailed;
+
     private void Update()
     {
         spawnRecipeTimer -= Time.deltaTime;
@@ -70,11 +73,15 @@ public class DeliveryManager : MonoBehaviour
                         waitingRecipeSOList.RemoveAt(i);
 
                         OnRecipeCompleted?.Invoke();
+
+                        OnRecipeSuccess?.Invoke();
                         return;
                     }
                 }
             }
         }
+
+        OnRecipeFailed?.Invoke();
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList()

@@ -6,7 +6,7 @@ public class Jumping : MonoBehaviour
 {
     private Rigidbody rb;
 
-    private bool jumping;
+    public bool jumping;
     private bool canDoubleJump = true;
 
     [SerializeField] private Transform feetPivot;

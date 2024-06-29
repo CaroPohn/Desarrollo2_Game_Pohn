@@ -10,6 +10,8 @@ public class Interact : MonoBehaviour, IKitchenObjectParent
     private KitchenObject kitchenObject;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
+    public static event EventHandler OnPickedSomething;
+
     private void Update()
     {
         SelectCounter();
@@ -67,6 +69,9 @@ public class Interact : MonoBehaviour, IKitchenObjectParent
     public void SetKitchenObject(KitchenObject kitchenObject)
     {
         this.kitchenObject = kitchenObject;
+
+        if (kitchenObject != null)
+            OnPickedSomething?.Invoke(this, EventArgs.Empty);
     }
 
     public KitchenObject GetKitchenObject()

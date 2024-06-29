@@ -9,17 +9,18 @@ public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent
     protected bool isHighlighted = false;
 
     protected KitchenObject kitchenObject;
-    //[SerializeField] protected KitchenObjectSO kitchenObjectSO;
     [SerializeField] public Transform counterTopPoint;
+
+    public static event EventHandler OnAnyObjectPlacedHere;
 
     public virtual void Interact(Interact playerInteract)
     {
-        //Debug.LogError("BaseCounter.Interact();");
+        
     }
 
     public virtual void InteractAlternate(Interact playerInteract)
     {
-        //Debug.LogError("BaseCounter.InteractAlternate();");
+        
     }
 
     public virtual void ToggleHighlight()
@@ -36,6 +37,11 @@ public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent
     public void SetKitchenObject(KitchenObject kitchenObject)
     {
         this.kitchenObject = kitchenObject;
+
+        if(kitchenObject != null )
+        {
+            OnAnyObjectPlacedHere?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public KitchenObject GetKitchenObject()

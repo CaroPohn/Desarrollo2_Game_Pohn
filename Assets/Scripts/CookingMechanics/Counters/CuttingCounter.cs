@@ -14,8 +14,9 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
     public event Action OnCut;
 
-    [SerializeField] private float cutCooldown;
+    public static event EventHandler OnAnyCut;
 
+    [SerializeField] private float cutCooldown;
     private float lastCutTime;
 
     private void Start()
@@ -77,6 +78,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
         cuttingProgress++;
 
         OnCut?.Invoke();
+        OnAnyCut?.Invoke(this, EventArgs.Empty);
 
         CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 

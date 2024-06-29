@@ -17,6 +17,8 @@ public class Running : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    public bool isRunning;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,9 +40,12 @@ public class Running : MonoBehaviour
 
         animator.SetBool("isRunning", true);
 
+        isRunning = true;
+
         if(dir ==  Vector3.zero)
         {
             animator.SetBool("isRunning", false);
+            isRunning = false;
         }
     }
 
