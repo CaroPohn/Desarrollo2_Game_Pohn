@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TomatoSlice
   m_EditorClassIdentifier: 
   objectName: Tomato Slice
+  sprite: {fileID: 21300000, guid: c9f08c3c1ae2a364aaeaa3712540b1d4, type: 3}
   mesh: {fileID: 5897541620420230933, guid: d9494d2c513674145bc8f8d343a636d0, type: 3}
   material: {fileID: -1724080987372072942, guid: d9494d2c513674145bc8f8d343a636d0, type: 3}

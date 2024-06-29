@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: TomatoSlices
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2220897993036079643, guid: 021012dbf5ed7f243b1c5ab23aaacadf, type: 3}
   objectName: Tomato Slices
+  sprite: {fileID: 21300000, guid: c9f08c3c1ae2a364aaeaa3712540b1d4, type: 3}
   mesh: {fileID: 8183966572487801318, guid: db76c44656c77b54e95fa28594301518, type: 3}
   material: {fileID: -1724080987372072942, guid: db76c44656c77b54e95fa28594301518, type: 3}

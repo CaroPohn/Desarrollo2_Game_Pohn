@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: CheeseBlock
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3822262710613123897, guid: bb7e6fdbce6bd234fb5b0f610cc7e686, type: 3}
   objectName: Cheese Block
+  sprite: {fileID: 21300000, guid: 6820e50a72696664cb1a9b5484ecee33, type: 3}
   mesh: {fileID: 1106177787490279471, guid: 8dddbec38ab199743925ac92dfb20211, type: 3}
   material: {fileID: -1724080987372072942, guid: 8dddbec38ab199743925ac92dfb20211, type: 3}

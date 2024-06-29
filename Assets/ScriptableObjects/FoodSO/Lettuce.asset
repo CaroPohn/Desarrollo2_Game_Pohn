@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: Lettuce
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7551986037323856822, guid: 7bd1d29c4dfaf3d4abc9e0f9af919547, type: 3}
   objectName: Lettuce
+  sprite: {fileID: 21300000, guid: bee24f07c57157e45a946eed3bfe8b84, type: 3}
   mesh: {fileID: 599530405527473323, guid: 5a45f248b73fd1d4facd967e7497fbde, type: 3}
   material: {fileID: -1724080987372072942, guid: 5a45f248b73fd1d4facd967e7497fbde, type: 3}

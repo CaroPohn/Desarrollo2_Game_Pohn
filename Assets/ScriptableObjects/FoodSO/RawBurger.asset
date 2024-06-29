@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: RawBurger
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5939421956115764286, guid: 4bafeafe5382f7947b15a6beb0b14822, type: 3}
   objectName: Raw Burger
+  sprite: {fileID: 21300000, guid: 6820e50a72696664cb1a9b5484ecee33, type: 3}
   mesh: {fileID: -1675931065404318426, guid: 72bcf8ff3ce1f9d47bc958b8bb08d29c, type: 3}
   material: {fileID: -1724080987372072942, guid: 72bcf8ff3ce1f9d47bc958b8bb08d29c, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: Bun
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3373835463684048581, guid: bf4f502ee2900694f968683be5a4c5f3, type: 3}
   objectName: Bun
+  sprite: {fileID: 21300000, guid: 77b28124b8bda494381c80bd5aa42c22, type: 3}
   mesh: {fileID: 4755037694683280153, guid: 6532cd5bd38c9b647b91a2b0c0124242, type: 3}
   material: {fileID: -1724080987372072942, guid: 6532cd5bd38c9b647b91a2b0c0124242, type: 3}

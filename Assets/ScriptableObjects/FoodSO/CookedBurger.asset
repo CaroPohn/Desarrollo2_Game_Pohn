@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: CookedBurger
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5015359561567538024, guid: e474d22e1d86566418c0296cdca93a59, type: 3}
   objectName: Cooked Burger
+  sprite: {fileID: 21300000, guid: f1f50c7ef90b19741b26f2040806cf56, type: 3}
   mesh: {fileID: 2720608395318045412, guid: 2a8dfebc61f5cb047a7d92c740461095, type: 3}
   material: {fileID: -1724080987372072942, guid: 2a8dfebc61f5cb047a7d92c740461095, type: 3}

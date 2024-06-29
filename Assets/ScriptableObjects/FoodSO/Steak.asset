@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: Steak
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6329912826991809265, guid: 455fe1818cf1afa45bb7d3f811c0ca39, type: 3}
   objectName: Steak
+  sprite: {fileID: 21300000, guid: 6820e50a72696664cb1a9b5484ecee33, type: 3}
   mesh: {fileID: 188569108631043142, guid: 8cf98fca69e998043a16ce673d6c4840, type: 3}
   material: {fileID: -1724080987372072942, guid: 8cf98fca69e998043a16ce673d6c4840, type: 3}

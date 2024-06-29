@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f4b058f068f0c409ea99d3e81e46a3, type: 3}
   m_Name: CheeseSlices
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4777372519353897069, guid: ba759060b6aa9234fb704f094886eeb6, type: 3}
   objectName: Cheese Slices
+  sprite: {fileID: 21300000, guid: 549cb4f2b86d1b84d8cd41c1cfde26c8, type: 3}
   mesh: {fileID: 3172193150111333715, guid: dc3885604f88bef4094a68b7d28c598a, type: 3}
   material: {fileID: -1724080987372072942, guid: dc3885604f88bef4094a68b7d28c598a, type: 3}
