@@ -10,6 +10,8 @@ public class FriedState : State
 
     StoveCounter stoveCounter;
 
+    private bool isBurned = false;
+
     public override void Enter(List<State> possibleStates, params object[] objects)
     {
         base.Enter(possibleStates);
@@ -25,6 +27,7 @@ public class FriedState : State
         stoveCounter.BurningRecipe = stoveCounter.GetBurningRecipeSOWithInput(stoveCounter.GetKitchenObject().kitchenObjectSO);
 
         burningTimer = 0f;
+        isBurned = false;
 
         stoveCounter.UpdateProgress(burningTimer / stoveCounter.BurningRecipe.burningTimer);
     }
@@ -35,7 +38,7 @@ public class FriedState : State
 
         stoveCounter.UpdateProgress(burningTimer / stoveCounter.BurningRecipe.burningTimer);
 
-        if (burningTimer > stoveCounter.BurningRecipe.burningTimer)
+        if (burningTimer > stoveCounter.BurningRecipe.burningTimer && !isBurned)
         {
             stoveCounter.GetKitchenObject().DestroySelf();
 
@@ -43,12 +46,16 @@ public class FriedState : State
 
             KitchenObject.SetParentSpawnedKitchenObject(kitchenObject, stoveCounter);
 
-            stoveCounter.UpdateProgress(0f);
+            isBurned = true;
+
         }
+
+        if(isBurned)
+            stoveCounter.UpdateProgress(0f);
     }
 
     public override void Exit()
     {
-        base.Exit();
+        isBurned = false;
     }
 }

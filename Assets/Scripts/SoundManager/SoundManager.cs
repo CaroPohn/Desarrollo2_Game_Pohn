@@ -21,6 +21,18 @@ public class SoundManager : MonoBehaviour
         PlayerSounds.OnPlayerStep += PlayerSounds_OnPlayerStep;
     }
 
+    private void OnDestroy()
+    {
+        deliveryManager.OnRecipeSuccess -= DeliveryManager_OnRecipeSuccess;
+        deliveryManager.OnRecipeFailed -= DeliveryManager_OnRecipeFailed;
+
+        CuttingCounter.OnAnyCut -= CuttingCounter_OnAnyCut;
+        Interact.OnPickedSomething -= Interact_OnPickedSomething;
+        BaseCounter.OnAnyObjectPlacedHere -= BaseCounter_OnAnyObjectPlacedHere;
+        TrashCounter.OnAnyObjectTrashed -= TrashCounter_OnAnyObjectTrashed;
+        PlayerSounds.OnPlayerStep -= PlayerSounds_OnPlayerStep;
+    }
+
     private void PlayerSounds_OnPlayerStep(object sender, System.EventArgs e)
     {
         PlayerSounds playerStep = sender as PlayerSounds;
