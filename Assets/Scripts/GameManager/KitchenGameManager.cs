@@ -3,10 +3,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KitchenGameManager : MonoBehaviour
 {
     public event Action OnStateChanged;
+
+    [SerializeField] private string nextScene;
+    [SerializeField] private string currentLevel;
+
+    [SerializeField] private Button nextLevelButton;
+    [SerializeField] private Button playAgainButton;
+    [SerializeField] private Button backMenuButton;
 
     private enum State
     {
@@ -21,11 +29,20 @@ public class KitchenGameManager : MonoBehaviour
     private float waitingToStartTimer = 1f;
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
-    private float gamePlayingTimerMax = 70f;
+    private float gamePlayingTimerMax = 50f;
 
     private void Awake()
     {
         state = State.WaitingToStart;
+
+        nextLevelButton.onClick.AddListener(GoToNextLevel);
+        playAgainButton.onClick.AddListener(PlayAgain);
+        backMenuButton.onClick.AddListener(GoToMainMenu);
+    }
+
+    private void OnDestroy()
+    {
+        nextLevelButton.onClick.RemoveListener(GoToNextLevel);
     }
 
     private void Update()
@@ -39,6 +56,9 @@ public class KitchenGameManager : MonoBehaviour
                 if (waitingToStartTimer < 0f)
                 {
                     state = State.CountdownToStart;
+
+                    waitingToStartTimer = 1f;
+
                     OnStateChanged?.Invoke();
                 }
                 break; 
@@ -51,7 +71,10 @@ public class KitchenGameManager : MonoBehaviour
                 if (countdownToStartTimer < 0f)
                 {
                     state = State.GamePlaying;
+
                     gamePlayingTimer = gamePlayingTimerMax;
+                    countdownToStartTimer = 3f;
+
                     OnStateChanged?.Invoke();
                 }
                 break;
@@ -93,5 +116,20 @@ public class KitchenGameManager : MonoBehaviour
     public float GetPlayingTimerNormalized()
     {
         return 1 - (gamePlayingTimer / gamePlayingTimerMax);
+    }
+
+    private void GoToNextLevel()
+    {
+        SceneLoader.Instance.ChangeScene(nextScene);
+    }
+
+    private void GoToMainMenu()
+    {
+        SceneLoader.Instance.ChangeScene("Main_Menu");
+    }
+
+    private void PlayAgain()
+    {
+        SceneLoader.Instance.ChangeScene(currentLevel);
     }
 }

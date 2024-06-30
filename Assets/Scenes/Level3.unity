@@ -6975,7 +6975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007a0ec025d907b4f9f29332806b4bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Level3
+  nextScene: Level1
   nextLevelButton: {fileID: 1369107421}
 --- !u!4 &2141147388
 Transform:
