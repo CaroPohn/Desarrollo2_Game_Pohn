@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Interact : MonoBehaviour, IKitchenObjectParent
 {
+    [SerializeField] private KitchenGameManager gameManager;
+    
     private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
     [SerializeField] private Transform kitchenObjectHoldPoint;
@@ -47,6 +49,9 @@ public class Interact : MonoBehaviour, IKitchenObjectParent
 
     public void HandleInteraction()
     {
+        if(!gameManager.IsGamePlaying())
+            return;
+
         if(selectedCounter != null)
         {
             selectedCounter.Interact(this);
@@ -55,7 +60,10 @@ public class Interact : MonoBehaviour, IKitchenObjectParent
 
     public void HandleInteractionAlternate()
     {
-        if(selectedCounter != null)
+        if (!gameManager.IsGamePlaying())
+            return;
+
+        if (selectedCounter != null)
         {
             selectedCounter.InteractAlternate(this);
         }

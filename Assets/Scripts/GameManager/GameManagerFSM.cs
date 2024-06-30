@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoveCounterFSM : FSM
+public class GameManagerFSM : FSM
 {
-    [SerializeField] private StoveCounter stoveCounter;
+    [SerializeField] private KitchenGameManager kitchenGameManager;
 
     public override void ChangeState(State newState)
     {
@@ -18,22 +18,19 @@ public class StoveCounterFSM : FSM
 
         currentState.onFinished += ChangeState;
 
-        currentState.Enter(states, stoveCounter);
+        currentState.Enter(states, kitchenGameManager);
     }
 
     protected override void Update()
     {
-        if(stoveCounter.HasKitchenObject())
-        {
-            base.Update();
-        }
+        base.Update();
     }
 
-    public void OnStoveInteract<T>() where T : State
+    public void OnGameChangeState<T>() where T : State
     {
         foreach (State state in states)
         {
-            if(state as  T)
+            if (state as T)
             {
                 ChangeState(state);
             }
