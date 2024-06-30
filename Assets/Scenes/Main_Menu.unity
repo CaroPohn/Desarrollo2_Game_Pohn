@@ -509,10 +509,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreditsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 519338301880479265, guid: e275259ae7e297f4d9069042aa0efad3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6774053651199566384, guid: e275259ae7e297f4d9069042aa0efad3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
