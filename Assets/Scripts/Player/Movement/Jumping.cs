@@ -24,9 +24,20 @@ public class Jumping : MonoBehaviour
     [SerializeField] private Animator animator;
     Coroutine jumpCoroutine;
 
+    private bool isRespawning;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        ReturnToSpawn.OnRespawning += ReturnToSpawn_OnRespawning;
+        ReturnToSpawn.OnRespawned += ReturnToSpawn_OnRespawned;
+    }
+
+    private void OnDestroy()
+    {
+        ReturnToSpawn.OnRespawning -= ReturnToSpawn_OnRespawning;
+        ReturnToSpawn.OnRespawned -= ReturnToSpawn_OnRespawned;
     }
 
     private void FixedUpdate()
@@ -43,7 +54,7 @@ public class Jumping : MonoBehaviour
 
     public void StartJump()
     {
-        if ((coyoteTimeCounter > 0f && !jumping) || canDoubleJump)
+        if (((coyoteTimeCounter > 0f && !jumping) || canDoubleJump) && !isRespawning)
         {
             if (jumpCoroutine != null)
                 StopCoroutine(jumpCoroutine);
@@ -104,5 +115,15 @@ public class Jumping : MonoBehaviour
             jumping = false;
             canDoubleJump = true;
         }
+    }
+
+    private void ReturnToSpawn_OnRespawned()
+    {
+        isRespawning = false;
+    }
+
+    private void ReturnToSpawn_OnRespawning()
+    {
+        isRespawning = true;
     }
 }

@@ -36,6 +36,8 @@ public class KitchenGameManager : MonoBehaviour
 
     private bool isGamePaused = false;
 
+    private bool isFlashModeActive = false;
+
     private void Awake()
     {
         state = State.WaitingToStart;
@@ -48,6 +50,8 @@ public class KitchenGameManager : MonoBehaviour
     private void OnDestroy()
     {
         nextLevelButton.onClick.RemoveListener(GoToNextLevel);
+        playAgainButton.onClick.RemoveListener(PlayAgain);
+        backMenuButton.onClick.RemoveListener(GoToMainMenu);
     }
 
     private void Update()
@@ -57,6 +61,7 @@ public class KitchenGameManager : MonoBehaviour
             case State.WaitingToStart:
                
                 waitingToStartTimer -= Time.deltaTime;
+                Time.timeScale = 1f;
 
                 if (waitingToStartTimer < 0f)
                 {
@@ -128,7 +133,7 @@ public class KitchenGameManager : MonoBehaviour
         return 1 - (gamePlayingTimer / gamePlayingTimerMax);
     }
 
-    private void GoToNextLevel()
+    public void GoToNextLevel()
     {
         SceneLoader.Instance.ChangeScene(nextScene);
     }
@@ -156,6 +161,20 @@ public class KitchenGameManager : MonoBehaviour
         {
             Time.timeScale = 1f;
             OnGameUnpaused?.Invoke();
+        }
+    }
+
+    public void ToggleFlashMode()
+    {
+        isFlashModeActive = !isFlashModeActive;
+
+        if (isFlashModeActive)
+        {
+            Time.timeScale = 2f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
         }
     }
 }

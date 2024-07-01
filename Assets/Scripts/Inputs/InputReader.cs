@@ -8,6 +8,7 @@ public class InputReader : MonoBehaviour
     public CameraLook cameraLook;
     public Interact interact;
     public KitchenGameManager gameManager;
+    public FlyMode flyMode;
 
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
@@ -27,6 +28,9 @@ public class InputReader : MonoBehaviour
     {
         if (jumping && context.started)
             jumping.StartJump();
+        
+        if(flyMode && context.started)
+            flyMode.Fly();
     }
 
     public void HandleInteractInput(InputAction.CallbackContext context)
@@ -45,5 +49,23 @@ public class InputReader : MonoBehaviour
     {
         if (gameManager && context.started)
             gameManager.TogglePauseGame();
+    }
+
+    public void HandleNextLevel(InputAction.CallbackContext context)
+    {
+        if (gameManager && context.started)
+            gameManager.GoToNextLevel();
+    }
+
+    public void HandleGodMode(InputAction.CallbackContext context)
+    {
+        if (flyMode && context.started)
+            flyMode.ToggleFlyMode();
+    }
+
+    public void HandleFlash(InputAction.CallbackContext context)
+    {
+        if (gameManager && context.started)
+            gameManager.ToggleFlashMode();
     }
 }

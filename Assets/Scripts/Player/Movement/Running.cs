@@ -19,14 +19,31 @@ public class Running : MonoBehaviour
 
     public bool isRunning;
 
+    private bool isRespawning;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        ReturnToSpawn.OnRespawning += ReturnToSpawn_OnRespawning;
+        ReturnToSpawn.OnRespawned += ReturnToSpawn_OnRespawned;
+    }
+
+
+    private void OnDestroy()
+    {
+        ReturnToSpawn.OnRespawning -= ReturnToSpawn_OnRespawning;
+        ReturnToSpawn.OnRespawned -= ReturnToSpawn_OnRespawned;
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if(!isRespawning)
+        {
+            Move();
+        }
+        else
+            rb.AddForce(-new Vector3(rb.velocity.x, 0, rb.velocity.z), ForceMode.Impulse);
     }
 
     public void Move()
@@ -52,5 +69,16 @@ public class Running : MonoBehaviour
     public void SetDir(Vector3 newDir)
     {
         dir = newDir;
+    }
+
+    private void ReturnToSpawn_OnRespawning()
+    {
+        isRespawning = true;
+        animator.SetBool("isRunning", false);
+    }
+
+    private void ReturnToSpawn_OnRespawned()
+    {
+        isRespawning = false;   
     }
 }

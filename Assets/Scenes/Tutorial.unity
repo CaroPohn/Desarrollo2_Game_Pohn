@@ -8734,6 +8734,7 @@ GameObject:
   - component: {fileID: 1088181167}
   - component: {fileID: 1088181168}
   - component: {fileID: 1088181169}
+  - component: {fileID: 1088181170}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8887,6 +8888,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpoint: {fileID: 1748047494}
+--- !u!114 &1088181170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088181159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f029ec24a56de8c4fa7325b82e292961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1094368315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 231d8fc78b6ccc946aea498197109b3d, type: 3}
@@ -13386,6 +13399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e715b880a87e21248acebe304e9464f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backMenuButton: {fileID: 1721276536}
 --- !u!1001 &1696883959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16040,6 +16054,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5e6b4131-b002-4cf9-83c3-59765b1cf1c9
     m_ActionName: Player/Pause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2029202826}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: HandleNextLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8aee907d-dc49-4f92-beca-af098b9ffb07
+    m_ActionName: Player/NextLevel[/Keyboard/f9]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2029202826}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: HandleGodMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e0cb4db8-4344-4f37-a062-6b9bf8361775
+    m_ActionName: Player/GodMode[/Keyboard/f10]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2029202826}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: HandleFlash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 94071332-045e-4474-a472-1b851ad34c4d
+    m_ActionName: Player/FlashMode[/Keyboard/f11]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -16062,6 +16124,7 @@ MonoBehaviour:
   cameraLook: {fileID: 1642341678}
   interact: {fileID: 1088181167}
   gameManager: {fileID: 2141147387}
+  flyMode: {fileID: 1088181170}
 --- !u!4 &2033991332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 483248, guid: f584b275cfb132f48a2ec91fd9d1b576, type: 3}
