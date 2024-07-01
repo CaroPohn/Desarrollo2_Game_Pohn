@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Allows the player to toggle and control flying mode.
+/// </summary>
 public class FlyMode : MonoBehaviour
 {
     private bool isFlying;
     private bool wantsToFly;
     private Rigidbody rb;
 
+    [Tooltip("Vertical velocity while flying.")]
     [SerializeField] private float velocity;
 
     private Jumping jumping;
@@ -30,8 +34,6 @@ public class FlyMode : MonoBehaviour
             playerPosition.y += velocity * Time.deltaTime;
 
             transform.position = playerPosition;
-
-            Debug.Log("adentro del flying update");
         }
         else
         {
@@ -39,24 +41,23 @@ public class FlyMode : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles the flying mode on and off.
+    /// </summary>
     public void ToggleFlyMode()
     {
         isFlying = !isFlying;
         jumping.enabled = !isFlying;
-        Debug.Log("toggle fly mode");
-        Debug.Log("is flying " + isFlying);
-        Debug.Log("jumping state " + jumping.enabled);
     }
 
+    /// <summary>
+    /// Initiates or cancels the desire to fly based on current flying state.
+    /// </summary>
     public void Fly()
     {
         if (isFlying)
         {
             wantsToFly = !wantsToFly;
-            Debug.Log("entro al Fly If");
-            Debug.Log("wants to fly" + wantsToFly);
         }
-        else
-            Debug.Log("no entro al fly if");
     }
 }

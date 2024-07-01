@@ -6,8 +6,13 @@ using UnityEngine.UI;
 
 public class SliderManager : MonoBehaviour
 {
+    [Tooltip("Slider for sensitivity adjustment.")]
     [SerializeField] private Slider sensitivityBar;
+
+    [Tooltip("Slider for SFX volume adjustment.")]
     [SerializeField] private Slider sfxVolumeBar;
+
+    [Tooltip("Slider for music volume adjustment.")]
     [SerializeField] private Slider musicVolumeBar;
 
     static public Action<int> OnSensitivityChange;
@@ -68,6 +73,9 @@ public class SliderManager : MonoBehaviour
         musicVolumeBar.onValueChanged.RemoveListener(UpdateMusicVolume);
     }
 
+    /// <summary>
+    /// Updates the sensitivity value and saves it to PlayerPrefs.
+    /// </summary>
     private void UpdateSensitivity(float sensitivity)
     {
         PlayerPrefs.SetInt("sensitivity", (int)sensitivity);
@@ -76,6 +84,9 @@ public class SliderManager : MonoBehaviour
         OnSensitivityChange?.Invoke((int)sensitivity);
     }
 
+    /// <summary>
+    /// Updates the SFX volume value and saves it to PlayerPrefs.
+    /// </summary>
     private void UpdateSFXVolume(float sfxVolume)
     {
         PlayerPrefs.SetFloat("volume", sfxVolume);
@@ -84,6 +95,9 @@ public class SliderManager : MonoBehaviour
         OnSFXVolumeChange?.Invoke(sfxVolume);
     }
 
+    /// <summary>
+    /// Updates the music volume value and saves it to PlayerPrefs.
+    /// </summary>
     private void UpdateMusicVolume(float musicVolume)
     {
         PlayerPrefs.SetFloat("musicVolume", musicVolume);

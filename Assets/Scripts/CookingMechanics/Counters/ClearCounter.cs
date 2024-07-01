@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class ClearCounter : BaseCounter
 {
+    /// <summary>
+    /// Interacts with the counter, allowing the player to place or retrieve kitchen objects.
+    /// </summary>
+    /// <param name="playerInteract">The object interacting with the counter.</param>
     public override void Interact(Interact playerInteract)
     {
         if(!HasKitchenObject())

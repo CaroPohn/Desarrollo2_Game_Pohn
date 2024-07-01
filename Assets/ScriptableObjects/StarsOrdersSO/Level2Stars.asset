@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b61b060ddbcde043abf0acb3dc5efd4, type: 3}
   m_Name: Level2Stars
   m_EditorClassIdentifier: 
-  firstStarOrders: 2
-  secondStarOrders: 4
-  thirdStarOrders: 6
+  levelDuration: 280
+  firstStarOrders: 1
+  secondStarOrders: 3
+  thirdStarOrders: 5

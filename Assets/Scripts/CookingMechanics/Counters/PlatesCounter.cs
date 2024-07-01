@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class PlatesCounter : BaseCounter
 {
+    [Tooltip("Scriptable object representing the configuration of a plate to spawn.")]
     [SerializeField] KitchenObjectSO plateKitchenObjectSO;
 
     private float spawnPlateTimer;
@@ -34,6 +35,10 @@ public class PlatesCounter : BaseCounter
         }
     }
 
+    /// <summary>
+    /// Interacts with the plates counter, allowing the player to take a plate if available.
+    /// </summary>
+    /// <param name="playerInteract">The object interacting with the counter.</param>
     public override void Interact(Interact playerInteract)
     {
         if(!playerInteract.HasKitchenObject())

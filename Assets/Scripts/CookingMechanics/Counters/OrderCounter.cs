@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class OrderCounter : BaseCounter
 {
+
+    [Tooltip("Reference to the Delivery Manager to handle recipe deliveries.")]
     [SerializeField] DeliveryManager deliveryManager;
 
+    /// <summary>
+    /// Interacts with the order counter, allowing the player to deliver a plate of food if they are holding one.
+    /// </summary>
+    /// <param name="playerInteract">The object interacting with the counter.</param>
     public override void Interact(Interact playerInteract)
     {
         if(playerInteract.HasKitchenObject())

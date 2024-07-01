@@ -8,6 +8,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
 {
     private int cuttingProgress;
 
+    [Tooltip("Array of cutting recipes.")]
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
 
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
@@ -16,7 +17,9 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
     public static event EventHandler OnAnyCut;
 
+    [Tooltip("Cooldown time between cuts.")]
     [SerializeField] private float cutCooldown;
+
     private float lastCutTime;
 
     private void Start()
@@ -24,6 +27,10 @@ public class CuttingCounter : BaseCounter, IHasProgress
         lastCutTime = -cutCooldown;
     }
 
+    /// <summary>
+    /// Interacts with the counter, allowing the player to place or retrieve kitchen objects if the object is valid based on a cutting recipe.
+    /// </summary>
+    /// <param name="playerInteract">The object interacting with the counter.</param>
     public override void Interact(Interact playerInteract)
     {
         if (!HasKitchenObject())
@@ -62,9 +69,9 @@ public class CuttingCounter : BaseCounter, IHasProgress
     }
 
     /// <summary>
-    /// When a player interacts without leaving an ingredient, like cutting the vegetable.
+    /// Allows the player to cut the kitchen object on the counter if a valid object is placed and cooldown has passed.
     /// </summary>
-    /// <param name="playerInteract"></param>
+    /// <param name="playerInteract">The object interacting with the counter.</param>
     public override void InteractAlternate(Interact playerInteract)
     {
         if (Time.time - lastCutTime < cutCooldown)
@@ -96,6 +103,11 @@ public class CuttingCounter : BaseCounter, IHasProgress
         }
     }
 
+    /// <summary>
+    /// Checks if there is a cutting recipe for the given input kitchen object.
+    /// </summary>
+    /// <param name="inputKitchenObjectSO">The kitchen object to check for a recipe.</param>
+    /// <returns>true if a recipe exists; otherwise, false.</returns>
     private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)
     {
         CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKitchenObjectSO);
@@ -103,6 +115,11 @@ public class CuttingCounter : BaseCounter, IHasProgress
         return cuttingRecipeSO != null;
     }
 
+    /// <summary>
+    /// Gets the output kitchen object for a given input kitchen object based on the cutting recipe.
+    /// </summary>
+    /// <param name="inputKitchenObjectSO">The kitchen object to get the output for.</param>
+    /// <returns>The output kitchen object.</returns>
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
     {
         CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKitchenObjectSO);
@@ -117,6 +134,11 @@ public class CuttingCounter : BaseCounter, IHasProgress
         }
     }
 
+    /// <summary>
+    /// Gets the cutting recipe for a given input kitchen object.
+    /// </summary>
+    /// <param name="inputKitchenObjectSO">The kitchen object to get the recipe.</param>
+    /// <returns>The cutting recipe if found; otherwise, null.</returns>
     private CuttingRecipeSO GetCuttingRecipeSOWithInput(KitchenObjectSO inputKitchenObjectSO)
     {
         foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
