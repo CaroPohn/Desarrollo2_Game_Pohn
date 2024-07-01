@@ -60,8 +60,22 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.Save();
         }
 
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+            musicBar.value = PlayerPrefs.GetFloat("musicVolume");
+        }
+        else
+        {
+            musicBar.value = musicBar.maxValue / 2;
+            PlayerPrefs.SetFloat("musicVolume", musicBar.value);
+            PlayerPrefs.Save();
+        }
+
         sensitivityBar.onValueChanged.AddListener(UpdateSensitivity);
         soundBar.onValueChanged.AddListener(UpdateVolume);
+        musicBar.onValueChanged.AddListener(UpdateMusicVolume);
+
+        Time.timeScale = 1f;
     }
 
     private void Start()
@@ -81,7 +95,9 @@ public class MainMenu : MonoBehaviour
 
         sensitivityBar.onValueChanged.RemoveListener(UpdateSensitivity);
         soundBar.onValueChanged.RemoveListener(UpdateVolume);
+        musicBar.onValueChanged.RemoveListener(UpdateMusicVolume);
     }
+
     private void UpdateSensitivity(float sensitivity)
     {
         PlayerPrefs.SetInt("sensitivity", (int)sensitivity);
@@ -91,6 +107,12 @@ public class MainMenu : MonoBehaviour
     private void UpdateVolume(float volume)
     {
         PlayerPrefs.SetFloat("volume", volume);
+        PlayerPrefs.Save();
+    }
+
+    private void UpdateMusicVolume(float musicVolume)
+    {
+        PlayerPrefs.SetFloat("volume", musicVolume);
         PlayerPrefs.Save();
     }
 

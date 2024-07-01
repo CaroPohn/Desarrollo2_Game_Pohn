@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePauseUI : MonoBehaviour
 {
+    [SerializeField] Button backMenuButton;
+
+    private void Awake()
+    {
+        backMenuButton.onClick.AddListener(GoBackMenu);
+    }
+
     private void Start()
     {
         KitchenGameManager.OnGamePaused += KitchenGameManager_OnGamePaused;
@@ -36,5 +44,10 @@ public class GamePauseUI : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void GoBackMenu()
+    {
+        SceneLoader.Instance.ChangeScene("Main_Menu");
     }
 }
