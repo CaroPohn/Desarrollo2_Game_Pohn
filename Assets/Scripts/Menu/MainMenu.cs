@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,9 @@ public class MainMenu : MonoBehaviour
     [Header("Controls Canvas")]
     [SerializeField] private GameObject controlsCanvas;
     [SerializeField] private Button controlsBackButton;
+    [SerializeField] private Slider sensitivityBar;
+    [SerializeField] private Slider soundBar;
+    [SerializeField] private Slider musicBar;
 
     private GameObject currentCanvas;
 
@@ -33,8 +37,32 @@ public class MainMenu : MonoBehaviour
 
         creditsBackButton.onClick.AddListener(GoToMenuCanvas);
         controlsBackButton.onClick.AddListener(GoToMenuCanvas);
-    }
 
+        if (PlayerPrefs.HasKey("sensitivity"))
+        {
+            sensitivityBar.value = PlayerPrefs.GetInt("sensitivity");
+        }
+        else
+        {
+            sensitivityBar.value = sensitivityBar.maxValue / 2;
+            PlayerPrefs.SetInt("sensitivity", (int)sensitivityBar.value);
+            PlayerPrefs.Save();
+        }
+
+        if (PlayerPrefs.HasKey("volume"))
+        {
+            soundBar.value = PlayerPrefs.GetFloat("volume");
+        }
+        else
+        {
+            soundBar.value = soundBar.maxValue / 2;
+            PlayerPrefs.SetFloat("volume", soundBar.value);
+            PlayerPrefs.Save();
+        }
+
+        sensitivityBar.onValueChanged.AddListener(UpdateSensitivity);
+        soundBar.onValueChanged.AddListener(UpdateVolume);
+    }
 
     private void Start()
     {
@@ -50,6 +78,20 @@ public class MainMenu : MonoBehaviour
 
         creditsBackButton.onClick.RemoveListener(GoToMenuCanvas);
         controlsBackButton.onClick.RemoveListener(GoToMenuCanvas);
+
+        sensitivityBar.onValueChanged.RemoveListener(UpdateSensitivity);
+        soundBar.onValueChanged.RemoveListener(UpdateVolume);
+    }
+    private void UpdateSensitivity(float sensitivity)
+    {
+        PlayerPrefs.SetInt("sensitivity", (int)sensitivity);
+        PlayerPrefs.Save();
+    }
+
+    private void UpdateVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("volume", volume);
+        PlayerPrefs.Save();
     }
 
     private void StartPlayScene()

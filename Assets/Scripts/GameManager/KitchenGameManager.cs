@@ -16,6 +16,9 @@ public class KitchenGameManager : MonoBehaviour
     [SerializeField] private Button playAgainButton;
     [SerializeField] private Button backMenuButton;
 
+    static public event Action OnGamePaused;
+    static public event Action OnGameUnpaused;
+
     private enum State
     {
         WaitingToStart,
@@ -30,6 +33,8 @@ public class KitchenGameManager : MonoBehaviour
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 50f;
+
+    private bool isGamePaused = false;
 
     private void Awake()
     {
@@ -89,6 +94,11 @@ public class KitchenGameManager : MonoBehaviour
                     OnStateChanged?.Invoke();
                 }
                 break;
+
+            case State.GameOver:
+
+                Time.timeScale = 0f;
+                break;
         }
 
     }
@@ -131,5 +141,21 @@ public class KitchenGameManager : MonoBehaviour
     private void PlayAgain()
     {
         SceneLoader.Instance.ChangeScene(currentLevel);
+    }
+
+    public void TogglePauseGame()
+    {
+        isGamePaused = !isGamePaused;
+
+        if(isGamePaused)
+        {
+            Time.timeScale = 0f;
+            OnGamePaused?.Invoke();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            OnGameUnpaused?.Invoke();
+        }
     }
 }

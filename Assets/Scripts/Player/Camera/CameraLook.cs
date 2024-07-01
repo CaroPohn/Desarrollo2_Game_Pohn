@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
@@ -7,7 +8,7 @@ public class CameraLook : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
-    [SerializeField] private float sensitivity;
+    private int sensitivity;
     private float angle;
     private Transform mainCamera;
 
@@ -18,12 +19,25 @@ public class CameraLook : MonoBehaviour
 
         mainCamera = Camera.main.transform;
         mainCamera.localPosition = offset;
+
+        SliderManager.OnSensitivityChange += UpdateSensitivity;
+    }
+
+    private void OnDestroy()
+    {
+        SliderManager.OnSensitivityChange -= UpdateSensitivity;
     }
 
     private void LateUpdate()
     {
         transform.position = target.position;
+
         RotateCamera();
+    }
+
+    private void UpdateSensitivity(int newSensitivity)
+    {
+        sensitivity = newSensitivity;
     }
 
     void RotateCamera()

@@ -7,6 +7,7 @@ public class InputReader : MonoBehaviour
     public Jumping jumping;
     public CameraLook cameraLook;
     public Interact interact;
+    public KitchenGameManager gameManager;
 
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
@@ -38,5 +39,11 @@ public class InputReader : MonoBehaviour
     {
         if (interact && context.started)
             interact.HandleInteractionAlternate();
+    }
+
+    public void HandlePause(InputAction.CallbackContext context)
+    {
+        if (gameManager && context.started)
+            gameManager.TogglePauseGame();
     }
 }

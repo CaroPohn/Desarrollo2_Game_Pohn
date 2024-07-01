@@ -123,11 +123,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &432648856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4072862607531320901, guid: 1f323c8f52450e94e8208f97e42897b0, type: 3}
+  m_PrefabInstance: {fileID: 1845342220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &768532248 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 330295044098368571, guid: 2d2ed0ab8de4cbc44b06c5671428d727, type: 3}
   m_PrefabInstance: {fileID: 4757114149782944850}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &978595771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1216277590627980404, guid: 1f323c8f52450e94e8208f97e42897b0, type: 3}
+  m_PrefabInstance: {fileID: 1845342220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &979621368 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8537012499701348287, guid: 2d2ed0ab8de4cbc44b06c5671428d727, type: 3}
@@ -148,6 +170,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1356374662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5078341315718776010, guid: 1f323c8f52450e94e8208f97e42897b0, type: 3}
+  m_PrefabInstance: {fileID: 1845342220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1368745115
@@ -274,6 +307,9 @@ MonoBehaviour:
   creditsBackButton: {fileID: 1891932086}
   controlsCanvas: {fileID: 1845342223}
   controlsBackButton: {fileID: 1845342222}
+  sensitivityBar: {fileID: 1356374662}
+  soundBar: {fileID: 432648856}
+  musicBar: {fileID: 978595771}
 --- !u!114 &1588673623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3755198525307259681, guid: 2d2ed0ab8de4cbc44b06c5671428d727, type: 3}
